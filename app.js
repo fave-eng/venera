@@ -2298,6 +2298,57 @@
     }).join('')}</div>`;
   }
 
+  function renderPictureLabelGrid(block, blockId) {
+    const items = Array.isArray(block.items) ? block.items : [];
+    return `<div class="picture-label-grid">${items.map((item, index) => {
+      const image = safeText(item.image);
+      const label = safeText(item.imageAlt || `Workbook picture ${index + 1}`);
+      return `<div class="picture-label-card"><a href="${escapeHtml(image)}" target="_blank" rel="noopener"><img src="${escapeHtml(image)}" alt="${escapeHtml(label)}" loading="lazy"></a><div class="picture-label-response">${renderExerciseItem(item, blockId, index, true)}</div></div>`;
+    }).join('')}</div>`;
+  }
+
+  function renderEmailCompose(block, blockId) {
+    const items = Array.isArray(block.items) ? block.items : [];
+    const by = (id) => {
+      const item = items.find((one) => one.id === id);
+      return item ? renderExerciseItem(item, blockId, items.indexOf(item)) : '';
+    };
+    return `<div class="workbook-email"><div class="workbook-email-bar" aria-label="Email composition">✉ <span>New message</span></div>
+      <div class="workbook-email-body">
+        <div class="email-question-guide"><strong>Your questions from d</strong><p data-email-question-state>Complete exercise d first, then use your own questions to write the email.</p><ol data-email-questions></ol></div>
+        <div class="email-greeting">Hi ${by('greeting')}<span>,</span></div>
+        <p class="email-fixed-copy">Right now, I’m doing my English homework.</p>
+        ${by('message')}
+        <p class="email-fixed-copy">Hope you’re well.</p>
+        <p class="email-fixed-copy">Best wishes</p>
+        <div class="email-signature">${by('signature')}</div>
+      </div></div>`;
+  }
+
+  function wireEmailDependencies(root) {
+    const source = root.querySelector('[data-task="grammar-3d"]');
+    const target = root.querySelector('[data-task="grammar-3e"]');
+    if (!source || !target) return;
+    const fields = ['2','3','4','5','6'];
+    const list = target.querySelector('[data-email-questions]');
+    const state = target.querySelector('[data-email-question-state]');
+    function refresh() {
+      const actual = fields.map((id) => source.querySelector(`[data-exercise-item="${id}"] input`)?.value.trim() || '');
+      const ready = actual.every(Boolean);
+      target.classList.toggle('email-awaiting-questions', !ready);
+      target.querySelectorAll('.workbook-email-body input, .workbook-email-body textarea').forEach((field) => { field.disabled = !ready; });
+      if (state) state.textContent = ready
+        ? 'Use the questions you wrote above. They are shown here exactly as you entered them.'
+        : 'Finish all five questions in exercise d to unlock the email.';
+      if (list) list.innerHTML = ready
+        ? ['What are you doing right now?', ...actual].map((question) => `<li>${escapeHtml(question)}</li>`).join('')
+        : '';
+    }
+    source.addEventListener('input', refresh);
+    source.addEventListener('change', refresh);
+    refresh();
+  }
+
   function renderLessonBlock(block, index) {
     const id = safeText(block.id, `task-${index}`);
     const title = escapeHtml(block.title || block.prompt || `Task ${index + 1}`);
@@ -2350,7 +2401,11 @@
           }).join('')}</div>`
         : '';
       const intro = block.introTitle || block.introText ? `<div class="exercise-source"><h4>${escapeHtml(block.introTitle || '')}</h4>${block.introText ? `<p>${escapeHtml(block.introText)}</p>` : ''}</div>` : '';
-      const exerciseContent = block.layout === 'dialogue'
+      const exerciseContent = block.layout === 'picture-label-grid'
+        ? renderPictureLabelGrid(block, id)
+        : block.layout === 'email-compose'
+          ? renderEmailCompose(block, id)
+          : block.layout === 'dialogue'
         ? renderDialogueExercise(block, id)
         : block.layout === 'crossword'
           ? renderCrosswordExercise(block, id)
@@ -2735,6 +2790,7 @@
 
     restoreLessonAnswers(root, blocks, savedResult?.answers);
     wireLessonInteractiveInputs(root);
+    wireEmailDependencies(root);
 
     root.querySelectorAll('[data-reorder-source]').forEach((source) => {
       source.addEventListener('click', (event) => {
@@ -2928,6 +2984,14 @@
 
       const checkButton = byId('check-grammar');
       const retryButton = byId('retry-grammar');
+      if (topic.lockOnPass === true && savedTopic.passed) {
+        setGrammarPracticeLocked(root, true);
+        checkButton.disabled = true;
+        retryButton.disabled = true;
+        byId('grammar-result').innerHTML = '<h3>Completed: 16 of 16</h3><p class="grammar-success-note">The topic is complete. Your answers have been saved and locked.</p>';
+        return;
+      }
+
 
       checkButton.addEventListener('click', () => {
         let correct = 0;
@@ -2957,8 +3021,8 @@
           bestScore,
           // Keep the current attempt only while it still contains errors.
           // At 100% the answers are erased; the completed topic can later be practised again from a blank state.
-          answers: percent === 100 ? {} : answers,
-          checked: percent !== 100,
+          answers: percent === 100 && topic.lockOnPass !== true ? {} : answers,
+          checked: percent !== 100 || topic.lockOnPass === true,
           updatedAt: checkedAt,
           passedAt: passed ? (previous.passedAt || checkedAt) : null
         };
@@ -2966,7 +3030,13 @@
 
         if (percent === 100) {
           byId('grammar-result').innerHTML = `<h3>Score: ${correct} of ${total}</h3><p class="muted">100% correct</p><p class="grammar-success-note">Excellent! The topic is completed. Your answers are not stored, so you can practise the topic again later from scratch.</p>`;
-          // Do not lock the inputs. The learner may review the current result or press Start again for a fresh attempt.
+          if (topic.lockOnPass === true) {
+            setGrammarPracticeLocked(root, true);
+            checkButton.disabled = true;
+            retryButton.disabled = true;
+            byId('grammar-result').innerHTML = `<h3>Score: ${correct} of ${total}</h3><p class="grammar-success-note">100% correct · The topic is completed and locked.</p>`;
+          }
+          // Other grammar topics may still allow independent repeated practice.
         } else {
           byId('grammar-result').innerHTML = `<h3>Score: ${correct} of ${total}</h3><p class="muted">${percent}% correct</p><p class="grammar-success-note">The answers that need another try are highlighted. Correct only those places and check again.</p>`;
         }
@@ -3170,6 +3240,7 @@
     const topicProgress = getTopicProgress(progress, topic.id);
     let mode = 'cards';
     let cardQueue = [];
+    const reviewedThisSession = new Set();
     let testState = null;
 
     root.innerHTML = `<div class="mode-tabs" id="vocab-modes" aria-label="Practice mode">
@@ -3186,7 +3257,7 @@
         const status = progress.words[word.__wordKey]?.status;
         return mode === 'difficult'
           ? status === 'difficult'
-          : !['known', 'reviewed', 'difficult'].includes(status);
+          : !['known', 'difficult'].includes(status) && !reviewedThisSession.has(word.__wordKey);
       }));
     };
 
@@ -3211,9 +3282,9 @@
       flashcard.addEventListener('click', flip);
       flashcard.addEventListener('keydown', (event) => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); flip(); } });
       byId('word-known').addEventListener('click', () => {
-        setWordStatus(progress, word, topic.id, 'reviewed');
+        // Reviewing a card only hides it in this session; only a correct test saves a learned status.
+        reviewedThisSession.add(word.__wordKey);
         cardQueue.shift();
-        save();
         drawCard();
       });
       byId('word-difficult').addEventListener('click', () => {

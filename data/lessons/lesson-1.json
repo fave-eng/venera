@@ -1,0 +1,769 @@
+{
+  "id": "lesson-1",
+  "number": 1,
+  "title": "1A · Eating in… and out",
+  "subtitle": "Food and cooking · Pronunciation 2b · Present simple and continuous · Email",
+  "status": "available",
+  "vocabularyId": "vocab-lesson-1-food",
+  "grammarIds": [
+    "grammar-present-simple-continuous"
+  ],
+  "publishedAt": "2026-10-20",
+  "totalPoints": 33,
+  "notification": {
+    "enabled": false,
+    "version": 1
+  },
+  "blocks": [
+    {
+      "type": "section",
+      "sectionNumber": 1,
+      "title": "1 · VOCABULARY · food and cooking",
+      "text": "Workbook 1A · eating in… and out"
+    },
+    {
+      "type": "exercise",
+      "id": "food-1c",
+      "title": "c Label the pictures.",
+      "instructions": "Label the pictures.",
+      "items": [
+        {
+          "id": "1",
+          "number": 1,
+          "image": "images/lesson-1/01-grilled-salmon.jpg",
+          "imageAlt": "Workbook food photograph 1: salmon",
+          "imageCaption": "salmon",
+          "example": true,
+          "exampleMode": "gaps",
+          "segments": [
+            "",
+            " salmon"
+          ],
+          "exampleAnswers": [
+            "grilled"
+          ],
+          "showExampleNumber": true
+        },
+        {
+          "id": "2",
+          "number": 2,
+          "image": "images/lesson-1/02-boiled-egg.jpg",
+          "imageAlt": "Workbook food photograph 2: egg",
+          "imageCaption": "egg",
+          "input": "gaps",
+          "segments": [
+            "",
+            " egg"
+          ],
+          "answers": [
+            "boiled"
+          ]
+        },
+        {
+          "id": "3",
+          "number": 3,
+          "image": "images/lesson-1/03-baked-potato.jpg",
+          "imageAlt": "Workbook food photograph 3: potato",
+          "imageCaption": "potato",
+          "input": "gaps",
+          "segments": [
+            "",
+            " potato"
+          ],
+          "answers": [
+            "baked"
+          ]
+        },
+        {
+          "id": "4",
+          "number": 4,
+          "image": "images/lesson-1/04-fried-egg.jpg",
+          "imageAlt": "Workbook food photograph 4: egg",
+          "imageCaption": "egg",
+          "input": "gaps",
+          "segments": [
+            "",
+            " egg"
+          ],
+          "answers": [
+            "fried"
+          ]
+        },
+        {
+          "id": "5",
+          "number": 5,
+          "image": "images/lesson-1/05-roast-chicken.jpg",
+          "imageAlt": "Workbook food photograph 5: chicken",
+          "imageCaption": "chicken",
+          "input": "gaps",
+          "segments": [
+            "",
+            " chicken"
+          ],
+          "answers": [
+            "roast"
+          ]
+        },
+        {
+          "id": "6",
+          "number": 6,
+          "image": "images/lesson-1/06-steamed-peas.jpg",
+          "imageAlt": "Workbook food photograph 6: peas",
+          "imageCaption": "peas",
+          "input": "gaps",
+          "segments": [
+            "",
+            " peas"
+          ],
+          "answers": [
+            "steamed"
+          ]
+        }
+      ],
+      "hideAnswersOnError": true,
+      "inlineNumberedItems": true,
+      "layout": "picture-label-grid"
+    },
+    {
+      "type": "section",
+      "sectionNumber": 2,
+      "title": "2 · PRONUNCIATION · short and long vowel sounds",
+      "text": ""
+    },
+    {
+      "type": "exercise",
+      "id": "pronunciation-2b",
+      "title": "b 1.1 Listen and check. Then listen again and repeat the words.",
+      "instructions": "Listen and check. Then listen again and repeat the words.",
+      "wordBank": [
+        "beef",
+        "carton",
+        "chicken",
+        "chocolate",
+        "cookie",
+        "crab",
+        "cucumber",
+        "jar",
+        "mango",
+        "peach",
+        "pork",
+        "prawns",
+        "sausage",
+        "squid",
+        "sugar",
+        "tuna"
+      ],
+      "audio": "audio/English_File_4e_Intermediate_WB_1.1.mp3",
+      "inlineNumberedItems": false,
+      "items": [
+        {
+          "id": "repeated",
+          "number": null,
+          "input": "checkbox",
+          "label": "I repeated the words",
+          "scored": false
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "sectionNumber": 3,
+      "title": "3 · GRAMMAR · present simple and continuous, action and non-action verbs",
+      "text": ""
+    },
+    {
+      "type": "exercise",
+      "id": "grammar-3a",
+      "title": "a Complete the sentences with the present simple or continuous form of the verbs in brackets.",
+      "instructions": "Complete the sentences with the present simple or continuous form of the verbs in brackets.",
+      "items": [
+        {
+          "id": "1",
+          "number": 1,
+          "example": true,
+          "exampleMode": "gaps",
+          "showExampleNumber": true,
+          "segments": [
+            "I sometimes ",
+            " tired after lunch. (feel)"
+          ],
+          "exampleAnswers": [
+            "feel"
+          ]
+        },
+        {
+          "id": "2",
+          "number": 2,
+          "input": "gaps",
+          "segments": [
+            "We ",
+            " usually ",
+            " late at the weekend. (not get up)"
+          ],
+          "answers": [
+            [
+              "don't",
+              "do not",
+              "don’t"
+            ],
+            [
+              "get up"
+            ]
+          ]
+        },
+        {
+          "id": "3",
+          "number": 3,
+          "input": "gaps",
+          "segments": [
+            "",
+            " you ",
+            " the TV or can I turn it off? (watch)"
+          ],
+          "answers": [
+            [
+              "are"
+            ],
+            [
+              "watching"
+            ]
+          ]
+        },
+        {
+          "id": "4",
+          "number": 4,
+          "input": "gaps",
+          "segments": [
+            "My boss ",
+            " to work every morning. (cycle)"
+          ],
+          "answers": [
+            [
+              "cycles"
+            ]
+          ]
+        },
+        {
+          "id": "5",
+          "number": 5,
+          "input": "gaps",
+          "segments": [
+            "Can you call back later – I can’t hear you. We ",
+            " a party, and the music is very loud. (have)"
+          ],
+          "answers": [
+            [
+              "are having",
+              "'re having",
+              "’re having"
+            ]
+          ]
+        },
+        {
+          "id": "6",
+          "number": 6,
+          "input": "gaps",
+          "segments": [
+            "There’s a man in our neighbours’ garden. What ",
+            " he ",
+            "? (do)"
+          ],
+          "answers": [
+            [
+              "is",
+              "'s",
+              "’s"
+            ],
+            [
+              "doing"
+            ]
+          ]
+        },
+        {
+          "id": "7",
+          "number": 7,
+          "input": "gaps",
+          "segments": [
+            "How often ",
+            " your teacher ",
+            " you homework? (give)"
+          ],
+          "answers": [
+            [
+              "does"
+            ],
+            [
+              "give"
+            ]
+          ]
+        },
+        {
+          "id": "8",
+          "number": 8,
+          "input": "gaps",
+          "segments": [
+            "I ",
+            " chocolate this month. I need to cut down on sweet things. (not eat)"
+          ],
+          "answers": [
+            [
+              "am not eating",
+              "'m not eating",
+              "’m not eating"
+            ]
+          ]
+        },
+        {
+          "id": "9",
+          "number": 9,
+          "input": "gaps",
+          "segments": [
+            "My mother ",
+            " often ",
+            " exercise. (not do)"
+          ],
+          "answers": [
+            [
+              "doesn't",
+              "does not",
+              "doesn’t"
+            ],
+            [
+              "do"
+            ]
+          ]
+        },
+        {
+          "id": "10",
+          "number": 10,
+          "input": "gaps",
+          "segments": [
+            "My girlfriend has stopped eating snacks. She ",
+            " to be healthier. (try)"
+          ],
+          "answers": [
+            [
+              "is trying",
+              "'s trying",
+              "’s trying"
+            ]
+          ]
+        }
+      ],
+      "hideAnswersOnError": true,
+      "inlineNumberedItems": true
+    },
+    {
+      "type": "exercise",
+      "id": "grammar-3b",
+      "title": "b Correct any mistakes in the highlighted phrases. Tick (✓) the correct sentences.",
+      "instructions": "Correct any mistakes in the highlighted phrases. Tick (✓) the correct sentences.",
+      "items": [
+        {
+          "id": "1",
+          "number": 1,
+          "input": "correction-or-check",
+          "contextParts": [
+            {
+              "text": "I like",
+              "highlight": true
+            },
+            {
+              "text": " your jacket. Is it new?"
+            }
+          ],
+          "expectedCorrect": true,
+          "example": true,
+          "exampleMode": "correction-or-check",
+          "acceptedAnswers": [
+            "I like your jacket. Is it new?",
+            "I like your jacket. Is it new?."
+          ]
+        },
+        {
+          "id": "2",
+          "number": 2,
+          "input": "correction-or-check",
+          "contextParts": [
+            {
+              "text": "Something "
+            },
+            {
+              "text": "is smelling",
+              "highlight": true
+            },
+            {
+              "text": " good. What are you making?"
+            }
+          ],
+          "expectedCorrect": false,
+          "acceptedAnswers": [
+            "smells",
+            "smells."
+          ]
+        },
+        {
+          "id": "3",
+          "number": 3,
+          "input": "correction-or-check",
+          "contextParts": [
+            {
+              "text": "That cake "
+            },
+            {
+              "text": "is looking",
+              "highlight": true
+            },
+            {
+              "text": " delicious. Did you make it?"
+            }
+          ],
+          "expectedCorrect": false,
+          "acceptedAnswers": [
+            "looks",
+            "looks."
+          ]
+        },
+        {
+          "id": "4",
+          "number": 4,
+          "input": "correction-or-check",
+          "contextParts": [
+            {
+              "text": "I "
+            },
+            {
+              "text": "don’t know",
+              "highlight": true
+            },
+            {
+              "text": " what to cook for dinner."
+            }
+          ],
+          "expectedCorrect": true
+        },
+        {
+          "id": "5",
+          "number": 5,
+          "input": "correction-or-check",
+          "contextParts": [
+            {
+              "text": "Are you thinking",
+              "highlight": true
+            },
+            {
+              "text": " the fish is cooked now?"
+            }
+          ],
+          "expectedCorrect": false,
+          "acceptedAnswers": [
+            "Do you think",
+            "Do you think."
+          ]
+        },
+        {
+          "id": "6",
+          "number": 6,
+          "input": "correction-or-check",
+          "contextParts": [
+            {
+              "text": "Can I call you back? "
+            },
+            {
+              "text": "I’m having",
+              "highlight": true
+            },
+            {
+              "text": " lunch right now."
+            }
+          ],
+          "expectedCorrect": true
+        },
+        {
+          "id": "7",
+          "number": 7,
+          "input": "correction-or-check",
+          "contextParts": [
+            {
+              "text": "This soup "
+            },
+            {
+              "text": "tastes",
+              "highlight": true
+            },
+            {
+              "text": " quite spicy. What’s in it?"
+            }
+          ],
+          "expectedCorrect": true
+        },
+        {
+          "id": "8",
+          "number": 8,
+          "input": "correction-or-check",
+          "contextParts": [
+            {
+              "text": "I’m loving",
+              "highlight": true
+            },
+            {
+              "text": " all kinds of vegetables. There aren’t any I don’t eat."
+            }
+          ],
+          "expectedCorrect": false,
+          "acceptedAnswers": [
+            "I love",
+            "I love."
+          ]
+        }
+      ],
+      "hideAnswersOnError": true,
+      "inlineNumberedItems": true
+    },
+    {
+      "type": "exercise",
+      "id": "grammar-3c",
+      "title": "c Complete the sentences using the correct form of a verb from the list.",
+      "instructions": "Complete the sentences using the correct form of a verb from the list.",
+      "items": [
+        {
+          "id": "1",
+          "number": 1,
+          "example": true,
+          "exampleMode": "gaps",
+          "segments": [
+            "I can’t talk now, ",
+            ". I’ll call you when I get to the office."
+          ],
+          "exampleAnswers": [
+            "I’m driving"
+          ],
+          "showExampleNumber": true
+        },
+        {
+          "id": "2",
+          "number": 2,
+          "input": "gaps",
+          "segments": [
+            "I think your boyfriend is telling the truth – I ",
+            " him."
+          ],
+          "answers": [
+            "believe"
+          ]
+        },
+        {
+          "id": "3",
+          "number": 3,
+          "input": "gaps",
+          "segments": [
+            "Can you turn off your computer if you ",
+            " it?"
+          ],
+          "answers": [
+            [
+              "aren't using",
+              "are not using",
+              "aren’t using"
+            ]
+          ]
+        },
+        {
+          "id": "4",
+          "number": 4,
+          "input": "gaps",
+          "segments": [
+            "This bag ",
+            " to me. Is it yours?"
+          ],
+          "answers": [
+            [
+              "doesn't belong",
+              "does not belong",
+              "doesn’t belong"
+            ]
+          ]
+        },
+        {
+          "id": "5",
+          "number": 5,
+          "input": "gaps",
+          "segments": [
+            "Sarah isn’t at home. She ",
+            " tennis."
+          ],
+          "answers": [
+            [
+              "is playing",
+              "'s playing",
+              "’s playing"
+            ]
+          ]
+        },
+        {
+          "id": "6",
+          "number": 6,
+          "input": "gaps",
+          "segments": [
+            "I’m tired because I ",
+            " well at the moment."
+          ],
+          "answers": [
+            [
+              "am not sleeping",
+              "'m not sleeping",
+              "’m not sleeping"
+            ]
+          ]
+        },
+        {
+          "id": "7",
+          "number": 7,
+          "input": "gaps",
+          "segments": [
+            "I ",
+            " that woman. Do you know who she is?"
+          ],
+          "answers": [
+            [
+              "don't recognize",
+              "do not recognize",
+              "don’t recognize"
+            ]
+          ]
+        },
+        {
+          "id": "8",
+          "number": 8,
+          "input": "gaps",
+          "segments": [
+            "That music ",
+            " awful. Would you mind turning it down?"
+          ],
+          "answers": [
+            "sounds"
+          ]
+        }
+      ],
+      "hideAnswersOnError": true,
+      "inlineNumberedItems": true,
+      "wordBank": [
+        "believe",
+        "not belong",
+        "drive",
+        "play",
+        "not recognize",
+        "not sleep",
+        "sound",
+        "not use"
+      ]
+    },
+    {
+      "type": "exercise",
+      "id": "grammar-3d",
+      "title": "d Write questions.",
+      "instructions": "Write questions.",
+      "items": [
+        {
+          "id": "1",
+          "number": 1,
+          "prompt": "what / you / do right now",
+          "example": true,
+          "exampleTarget": "What are you doing right now?"
+        },
+        {
+          "id": "2",
+          "number": 2,
+          "prompt": "where / you / usually do your homework",
+          "input": "text",
+          "placeholder": "Write the full question",
+          "acceptedAnswers": [
+            "Where do you usually do your homework?",
+            "Where do you usually do your homework"
+          ]
+        },
+        {
+          "id": "3",
+          "number": 3,
+          "prompt": "why / you / study English",
+          "input": "text",
+          "placeholder": "Write the full question",
+          "acceptedAnswers": [
+            "Why are you studying English?",
+            "Why are you studying English"
+          ]
+        },
+        {
+          "id": "4",
+          "number": 4,
+          "prompt": "you / think English is easy",
+          "input": "text",
+          "placeholder": "Write the full question",
+          "acceptedAnswers": [
+            "Do you think English is easy?",
+            "Do you think English is easy"
+          ]
+        },
+        {
+          "id": "5",
+          "number": 5,
+          "prompt": "you / enjoy the classes at the moment",
+          "input": "text",
+          "placeholder": "Write the full question",
+          "acceptedAnswers": [
+            "Are you enjoying the classes at the moment?",
+            "Are you enjoying the classes at the moment"
+          ]
+        },
+        {
+          "id": "6",
+          "number": 6,
+          "prompt": "what / you / usually do after the class",
+          "input": "text",
+          "placeholder": "Write the full question",
+          "acceptedAnswers": [
+            "What do you usually do after the class?",
+            "What do you usually do after the class"
+          ]
+        }
+      ],
+      "hideAnswersOnError": true,
+      "inlineNumberedItems": true
+    },
+    {
+      "type": "exercise",
+      "id": "grammar-3e",
+      "title": "e Write an email to your teacher. Use the questions in d to help you.",
+      "instructions": "Write an email to your teacher. Use the questions in d to help you.",
+      "items": [
+        {
+          "id": "greeting",
+          "number": null,
+          "input": "text",
+          "prompt": "",
+          "scored": false,
+          "placeholder": "Name"
+        },
+        {
+          "id": "message",
+          "number": null,
+          "input": "textarea",
+          "prompt": "",
+          "scored": false,
+          "placeholder": "Write your email here"
+        },
+        {
+          "id": "signature",
+          "number": null,
+          "input": "text",
+          "prompt": "",
+          "scored": false,
+          "placeholder": "Your name"
+        }
+      ],
+      "hideAnswersOnError": true,
+      "inlineNumberedItems": true,
+      "layout": "email-compose"
+    }
+  ]
+}

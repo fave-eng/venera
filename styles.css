@@ -4418,3 +4418,32 @@ a.knowledge-daily-card:hover {
   }
 }
 
+
+/* Workbook Unit 1A — image labels and email composition, scoped to lesson blocks */
+.picture-label-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;align-items:start}
+.picture-label-card{min-width:0;padding:12px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:18px}
+.picture-label-card > a{display:block;line-height:0;border-radius:12px;overflow:hidden}
+.picture-label-card img{width:100%;height:230px;object-fit:contain;background:#f6f6f5}
+.picture-label-response{margin-top:12px}
+.picture-label-response .exercise-item{border:0!important;padding:0!important;background:transparent!important;box-shadow:none!important}
+.picture-label-response .exercise-number{font-size:14px;font-weight:700}
+.picture-label-response .sentence-gaps{display:flex;flex-wrap:wrap;align-items:center;gap:7px}
+.picture-label-response .gap-input{min-width:115px;max-width:210px;width:60%;flex:1}
+.workbook-email{border:1px solid #d8dee9;border-radius:16px;background:white;overflow:hidden;box-shadow:0 6px 24px rgba(15,23,42,.06)}
+.workbook-email-bar{display:flex;align-items:center;gap:10px;padding:12px 17px;background:#edf2f9;color:#475569;border-bottom:1px solid #d8dee9;font-weight:700}
+.workbook-email-body{padding:18px 22px 24px}
+.workbook-email-body .exercise-item{border:0!important;background:transparent!important;padding:0!important;margin:0!important}
+.workbook-email-body .exercise-item-header{display:none}
+.workbook-email-body .exercise-control{padding:0!important;margin:0!important}
+.workbook-email-body textarea{display:block;min-height:190px;width:100%;padding:14px 12px;resize:vertical;border:1px solid #dbe3ee;border-radius:10px;line-height:1.65}
+.workbook-email-body .email-greeting{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:8px 0 12px}
+.workbook-email-body .email-greeting .exercise-item{flex:0 1 220px;min-width:145px}
+.workbook-email-body .email-greeting input{width:100%;min-width:0}
+.workbook-email-body .email-signature input{max-width:260px}
+.workbook-email-body .email-fixed-copy{margin:14px 0;line-height:1.7}
+.email-question-guide{margin:0 0 24px;padding:14px 16px;border-radius:12px;border:1px solid #d9e2ef;background:#f6f8ff}
+.email-question-guide strong{font-size:14px}
+.email-question-guide p{font-size:13px;color:#475569;margin:5px 0 10px}
+.email-question-guide ol{padding-left:24px;margin:0;display:grid;gap:6px;font-size:13px}
+.email-awaiting-questions .workbook-email-body input:disabled,.email-awaiting-questions .workbook-email-body textarea:disabled{background:#f1f5f9;color:#94a3b8;cursor:not-allowed}
+@media(max-width:680px){.picture-label-grid{grid-template-columns:1fr}.picture-label-card img{height:235px}.workbook-email-body{padding:13px}.email-question-guide{padding:12px}.workbook-email-body textarea{min-height:230px}}
