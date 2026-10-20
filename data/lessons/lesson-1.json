@@ -2,14 +2,14 @@
   "id": "lesson-1",
   "number": 1,
   "title": "1A · Eating in… and out",
-  "subtitle": "Food and cooking · Pronunciation 2b · Present simple and continuous · Email",
+  "subtitle": "Food and cooking · Pronunciation 2c · Present simple and continuous · Email",
   "status": "available",
   "vocabularyId": "vocab-lesson-1-food",
   "grammarIds": [
     "grammar-present-simple-continuous"
   ],
   "publishedAt": "2026-10-20",
-  "totalPoints": 33,
+  "totalPoints": 41,
   "notification": {
     "enabled": false,
     "version": 1
@@ -132,38 +132,101 @@
     },
     {
       "type": "exercise",
-      "id": "pronunciation-2b",
-      "title": "b 1.1 Listen and check. Then listen again and repeat the words.",
-      "instructions": "Listen and check. Then listen again and repeat the words.",
-      "wordBank": [
-        "beef",
-        "carton",
-        "chicken",
-        "chocolate",
-        "cookie",
-        "crab",
-        "cucumber",
-        "jar",
-        "mango",
-        "peach",
-        "pork",
-        "prawns",
-        "sausage",
-        "squid",
-        "sugar",
-        "tuna"
-      ],
-      "audio": "audio/English_File_4e_Intermediate_WB_1.1.mp3",
-      "inlineNumberedItems": false,
+      "id": "pronunciation-2c",
+      "title": "c Write the words.",
+      "instructions": "Write the words.",
       "items": [
         {
-          "id": "repeated",
-          "number": null,
-          "input": "checkbox",
-          "label": "I repeated the words",
-          "scored": false
+          "id": "1",
+          "number": 1,
+          "prompt": "/bɔɪld/",
+          "example": true,
+          "exampleTarget": "boiled"
+        },
+        {
+          "id": "2",
+          "number": 2,
+          "prompt": "/ˈkæbɪdʒ/",
+          "input": "text",
+          "placeholder": "",
+          "acceptedAnswers": [
+            "cabbage"
+          ]
+        },
+        {
+          "id": "3",
+          "number": 3,
+          "prompt": "/ˈspaɪsi/",
+          "input": "text",
+          "placeholder": "",
+          "acceptedAnswers": [
+            "spicy"
+          ]
+        },
+        {
+          "id": "4",
+          "number": 4,
+          "prompt": "/rəʊst/",
+          "input": "text",
+          "placeholder": "",
+          "acceptedAnswers": [
+            "roast"
+          ]
+        },
+        {
+          "id": "5",
+          "number": 5,
+          "prompt": "/ɡreɪps/",
+          "input": "text",
+          "placeholder": "",
+          "acceptedAnswers": [
+            "grapes"
+          ]
+        },
+        {
+          "id": "6",
+          "number": 6,
+          "prompt": "/fruːt/",
+          "input": "text",
+          "placeholder": "",
+          "acceptedAnswers": [
+            "fruit"
+          ]
+        },
+        {
+          "id": "7",
+          "number": 7,
+          "prompt": "/beɪkt/",
+          "input": "text",
+          "placeholder": "",
+          "acceptedAnswers": [
+            "baked"
+          ]
+        },
+        {
+          "id": "8",
+          "number": 8,
+          "prompt": "/ˈmelən/",
+          "input": "text",
+          "placeholder": "",
+          "acceptedAnswers": [
+            "melon"
+          ]
+        },
+        {
+          "id": "9",
+          "number": 9,
+          "prompt": "/ˈəʊbəʒiːn/",
+          "input": "text",
+          "placeholder": "",
+          "acceptedAnswers": [
+            "aubergine"
+          ]
         }
-      ]
+      ],
+      "hideAnswersOnError": true,
+      "inlineNumberedItems": true,
+      "layout": "phonetic-word-list"
     },
     {
       "type": "section",

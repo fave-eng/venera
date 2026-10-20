@@ -2300,10 +2300,15 @@
 
   function renderPictureLabelGrid(block, blockId) {
     const items = Array.isArray(block.items) ? block.items : [];
+    const renderedImages = new Set();
     return `<div class="picture-label-grid">${items.map((item, index) => {
       const image = safeText(item.image);
       const label = safeText(item.imageAlt || `Workbook picture ${index + 1}`);
-      return `<div class="picture-label-card"><a href="${escapeHtml(image)}" target="_blank" rel="noopener"><img src="${escapeHtml(image)}" alt="${escapeHtml(label)}" loading="lazy"></a><div class="picture-label-response">${renderExerciseItem(item, blockId, index, true)}</div></div>`;
+      // Workbook photo is rendered ONLY here, once. Do not duplicate it in the generic exercise media.
+      const picture = image && !renderedImages.has(image)
+        ? `<a href="${escapeHtml(image)}" target="_blank" rel="noopener"><img src="${escapeHtml(image)}" alt="${escapeHtml(label)}" loading="lazy"></a>` : '';
+      if (image) renderedImages.add(image);
+      return `<div class="picture-label-card">${picture}<div class="picture-label-response">${renderExerciseItem(item, blockId, index, true)}</div></div>`;
     }).join('')}</div>`;
   }
 
@@ -2315,7 +2320,7 @@
     };
     return `<div class="workbook-email"><div class="workbook-email-bar" aria-label="Email composition">✉ <span>New message</span></div>
       <div class="workbook-email-body">
-        <div class="email-question-guide"><strong>Your questions from d</strong><p data-email-question-state>Complete exercise d first, then use your own questions to write the email.</p><ol data-email-questions></ol></div>
+        <div class="email-question-guide"><strong>Your questions from d</strong><p data-email-question-state>Use the questions you wrote in d to help you. You can start writing now.</p><ol data-email-questions></ol></div>
         <div class="email-greeting">Hi ${by('greeting')}<span>,</span></div>
         <p class="email-fixed-copy">Right now, I’m doing my English homework.</p>
         ${by('message')}
@@ -2334,15 +2339,14 @@
     const state = target.querySelector('[data-email-question-state]');
     function refresh() {
       const actual = fields.map((id) => source.querySelector(`[data-exercise-item="${id}"] input`)?.value.trim() || '');
-      const ready = actual.every(Boolean);
-      target.classList.toggle('email-awaiting-questions', !ready);
-      target.querySelectorAll('.workbook-email-body input, .workbook-email-body textarea').forEach((field) => { field.disabled = !ready; });
-      if (state) state.textContent = ready
-        ? 'Use the questions you wrote above. They are shown here exactly as you entered them.'
-        : 'Finish all five questions in exercise d to unlock the email.';
-      if (list) list.innerHTML = ready
-        ? ['What are you doing right now?', ...actual].map((question) => `<li>${escapeHtml(question)}</li>`).join('')
-        : '';
+      // Writing is independent: do not disable greeting, email body or signature.
+      // Student's OWN answers in d update automatically without using the answer key.
+      const completed = actual.filter(Boolean);
+      if (state) state.textContent = completed.length
+        ? 'Your questions from d appear below as you write them. You can edit the email at any time.'
+        : 'Use your own questions from d to help you. You can start writing now.';
+      if (list) list.innerHTML = ['What are you doing right now?', ...completed]
+        .map((question) => `<li>${escapeHtml(question)}</li>`).join('');
     }
     source.addEventListener('input', refresh);
     source.addEventListener('change', refresh);
@@ -2391,7 +2395,7 @@
         : block.image
           ? [{ src: block.image, alt: block.imageAlt || '', label: '' }]
           : [];
-      const image = imageEntries.length
+      const image = block.layout !== 'picture-label-grid' && imageEntries.length
         ? `<div class="exercise-images${imageEntries.length > 1 ? ' exercise-images-multiple' : ''}">${imageEntries.map((entry) => {
             const src = typeof entry === 'string' ? entry : entry?.src;
             const alt = typeof entry === 'string' ? '' : entry?.alt || '';

@@ -4445,5 +4445,15 @@ a.knowledge-daily-card:hover {
 .email-question-guide strong{font-size:14px}
 .email-question-guide p{font-size:13px;color:#475569;margin:5px 0 10px}
 .email-question-guide ol{padding-left:24px;margin:0;display:grid;gap:6px;font-size:13px}
-.email-awaiting-questions .workbook-email-body input:disabled,.email-awaiting-questions .workbook-email-body textarea:disabled{background:#f1f5f9;color:#94a3b8;cursor:not-allowed}
+
 @media(max-width:680px){.picture-label-grid{grid-template-columns:1fr}.picture-label-card img{height:235px}.workbook-email-body{padding:13px}.email-question-guide{padding:12px}.workbook-email-body textarea{min-height:230px}}
+
+/* Workbook 1A, exercise 2c: IPA transcription with short word fields */
+[data-task="pronunciation-2c"] .exercise-items{display:grid;gap:9px}
+[data-task="pronunciation-2c"] .exercise-item{display:grid;grid-template-columns:minmax(140px,240px) minmax(160px,1fr);align-items:center;gap:12px 18px}
+[data-task="pronunciation-2c"] .exercise-item-header{margin:0;align-items:center}
+[data-task="pronunciation-2c"] .exercise-prompt{font-family:Georgia,"Times New Roman",serif;font-size:1.12rem;letter-spacing:.02em}
+[data-task="pronunciation-2c"] .exercise-control{margin:0;min-width:0}
+[data-task="pronunciation-2c"] .exercise-control input.text-field{max-width:310px}
+[data-task="pronunciation-2c"] .exercise-example-target{font-size:1.12rem}
+@media(max-width:680px){[data-task="pronunciation-2c"] .exercise-item{grid-template-columns:1fr;gap:4px}[data-task="pronunciation-2c"] .exercise-control input.text-field{max-width:100%}}
