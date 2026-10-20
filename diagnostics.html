@@ -20,7 +20,7 @@
   </style>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
   <script src="config.js" defer></script>
-  <script src="diagnostics.js?v=venera3" defer></script>
+  <script src="diagnostics.js?v=venera4" defer></script>
 </head>
 <body>
   <main class="wrap">
@@ -54,7 +54,7 @@
         <h2>Telegram</h2>
         <p class="sub">Проверяются bot getMe, доступ к группе и тема №5. Проверка чтения не отправляет сообщений.</p>
         <div id="telegram-info"></div>
-        <div class="note" style="margin-top:12px">Проверка getMe/getChat не подтверждает доставку сообщения в тему. Реальный тест отправки запускается вручную через GitHub Actions.</div>
+        <div class="note" style="margin-top:12px">Проверка getMe/getChat не подтверждает доставку сообщения в тему. Реальное сообщение отправляется отдельной кнопкой ниже.</div>
       </article>
 
       <article class="card wide">
@@ -66,8 +66,9 @@
 
       <article class="card wide">
         <h2>Реальная отправка в Telegram</h2>
-        <p class="sub">Чтобы исключить спам из публичной диагностической страницы, фактическую отправку тестового сообщения запускает только преподаватель в GitHub Actions. На странице Actions открой «1 - Setup Telegram notifications» и нажми «Run workflow». Это отдельная проверка, не запускающаяся при обычном «Проверить всё».</p>
-        <a class="btn dark" href="https://github.com/fave-eng/venera/actions/workflows/setup-telegram.yml" target="_blank" rel="noopener noreferrer">Открыть тест Telegram в GitHub Actions</a>
+        <p class="sub">Отправляет одно тестовое сообщение непосредственно в <a href="https://t.me/c/4440965188/5" target="_blank" rel="noopener noreferrer">Telegram-тему №5</a>. Не запускается автоматически при проверке Supabase. Для защиты от повторных отправок действует ограничение не чаще одного теста за 15 минут.</p>
+        <button class="btn dark" id="send-telegram-test" type="button">Отправить тестовое сообщение в тему №5</button>
+        <div id="telegram-send-result" class="test-result" aria-live="polite"></div>
       </article>
 
       <article class="card wide">
