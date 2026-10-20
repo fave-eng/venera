@@ -1,0 +1,9 @@
+# MacOS and Windows junk
+.DS_Store
+__MACOSX/
+Thumbs.db
+# Do not publish secrets or config credentials
+.env
+.env.*
+!.env.example
+node_modules/
