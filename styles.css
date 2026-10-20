@@ -4457,3 +4457,19 @@ a.knowledge-daily-card:hover {
 [data-task="pronunciation-2c"] .exercise-control input.text-field{max-width:310px}
 [data-task="pronunciation-2c"] .exercise-example-target{font-size:1.12rem}
 @media(max-width:680px){[data-task="pronunciation-2c"] .exercise-item{grid-template-columns:1fr;gap:4px}[data-task="pronunciation-2c"] .exercise-control input.text-field{max-width:100%}}
+
+/* Lesson 2 only: personality prefixes and the five workbook dialogue photographs */
+[data-task="personality-1d"] .exercise-items {display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-rows:repeat(7,auto);grid-auto-flow:column;column-gap:22px;align-items:start}
+[data-task="personality-1d"] .exercise-item {min-width:0}
+[data-task="personality-1d"] .exercise-control .text-field {max-width:250px}
+[data-task="future-2a"] .sentence-gaps span {white-space:pre-line}
+.venera-dialogue-groups {display:flex;flex-direction:column;gap:16px}
+.venera-dialogue-group {display:grid;grid-template-columns:minmax(140px,205px) minmax(0,1fr);align-items:start;gap:18px;padding:16px;border:1px solid #e1e8f4;border-radius:17px;background:#fff}
+.venera-dialogue-photo {display:block;overflow:hidden;border-radius:12px;border:1px solid #e2e8f0;align-self:start}
+.venera-dialogue-photo img {display:block;width:100%;height:auto;object-fit:contain}
+.venera-dialogue-content {min-width:0}
+.venera-dialogue-label {font-size:12px;letter-spacing:.07em;color:#5548d2;font-weight:800;margin-bottom:10px}
+.venera-dialogue-group .dialogue-line {margin-bottom:8px}
+.venera-dialogue-group .dialogue-item {min-width:0}
+.venera-dialogue-group .dialogue-gap-input {min-width:105px;max-width:190px;width:clamp(105px,17vw,190px)}
+@media(max-width:740px){[data-task="personality-1d"] .exercise-items {display:flex;flex-direction:column;gap:10px}[data-task="personality-1d"] .exercise-item {width:100%}.venera-dialogue-group {grid-template-columns:1fr;gap:12px}.venera-dialogue-photo {width:100%;max-width:320px}.venera-dialogue-group .dialogue-gap-input {width:min(100%,160px);min-width:92px}}

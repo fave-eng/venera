@@ -198,5 +198,219 @@ window.VOCABULARY_DATA = [
         "exampleRu": "По пятницам мы едим вне дома."
       }
     ]
+  },
+  {
+    "id": "vocab-lesson-2-modern-families",
+    "title": "Modern families · Family and personality",
+    "label": "Lesson 2 · Modern families",
+    "icon": "👪",
+    "type": "lesson",
+    "linkedLessonId": "lesson-2",
+    "page": "vocabulary.html?id=vocab-lesson-2-modern-families",
+    "words": [
+      {
+        "id": "lesson-2-great-grandfather",
+        "en": "great-grandfather",
+        "ru": "прадедушка",
+        "exampleEn": "My great-grandfather loved gardening.",
+        "exampleRu": "Мой прадедушка любил садоводство."
+      },
+      {
+        "id": "lesson-2-only-child",
+        "en": "only child",
+        "ru": "единственный ребёнок в семье",
+        "exampleEn": "She is an only child.",
+        "exampleRu": "Она единственный ребёнок в семье."
+      },
+      {
+        "id": "lesson-2-niece",
+        "en": "niece",
+        "ru": "племянница",
+        "exampleEn": "My niece is five years old.",
+        "exampleRu": "Моей племяннице пять лет."
+      },
+      {
+        "id": "lesson-2-adopted-child",
+        "en": "adopted child",
+        "ru": "приёмный ребёнок",
+        "exampleEn": "They have an adopted child.",
+        "exampleRu": "У них есть приёмный ребёнок."
+      },
+      {
+        "id": "lesson-2-immediate-family",
+        "en": "immediate family",
+        "ru": "ближайшие родственники",
+        "exampleEn": "My immediate family lives nearby.",
+        "exampleRu": "Мои ближайшие родственники живут недалеко."
+      },
+      {
+        "id": "lesson-2-stepmother",
+        "en": "stepmother",
+        "ru": "мачеха",
+        "exampleEn": "His stepmother is very kind.",
+        "exampleRu": "Его мачеха очень добрая."
+      },
+      {
+        "id": "lesson-2-brother-in-law",
+        "en": "brother-in-law",
+        "ru": "брат супруга или муж сестры",
+        "exampleEn": "My brother-in-law is a teacher.",
+        "exampleRu": "Муж моей сестры — учитель."
+      },
+      {
+        "id": "lesson-2-half-sister",
+        "en": "half-sister",
+        "ru": "сестра по одному общему родителю",
+        "exampleEn": "We have the same father; she is my half-sister.",
+        "exampleRu": "У нас общий отец; она моя сестра по одному родителю."
+      },
+      {
+        "id": "lesson-2-siblings",
+        "en": "siblings",
+        "ru": "братья и сёстры",
+        "exampleEn": "I have two siblings.",
+        "exampleRu": "У меня двое братьев и сестёр."
+      },
+      {
+        "id": "lesson-2-extended-family",
+        "en": "extended family",
+        "ru": "большая семья, включая дальних родственников",
+        "exampleEn": "My extended family meets in summer.",
+        "exampleRu": "Вся наша большая семья собирается летом."
+      },
+      {
+        "id": "lesson-2-nephew",
+        "en": "nephew",
+        "ru": "племянник",
+        "exampleEn": "My nephew loves football.",
+        "exampleRu": "Мой племянник любит футбол."
+      },
+      {
+        "id": "lesson-2-stepsister",
+        "en": "stepsister",
+        "ru": "сводная сестра",
+        "exampleEn": "Her stepsister lives in another city.",
+        "exampleRu": "Её сводная сестра живёт в другом городе."
+      },
+      {
+        "id": "lesson-2-anxious",
+        "en": "anxious",
+        "ru": "тревожный, беспокойный",
+        "exampleEn": "He feels anxious before an exam.",
+        "exampleRu": "Перед экзаменом он тревожится."
+      },
+      {
+        "id": "lesson-2-selfish",
+        "en": "selfish",
+        "ru": "эгоистичный",
+        "exampleEn": "That was a selfish decision.",
+        "exampleRu": "Это было эгоистичное решение."
+      },
+      {
+        "id": "lesson-2-sensible",
+        "en": "sensible",
+        "ru": "разумный, здравомыслящий",
+        "exampleEn": "It is sensible to plan ahead.",
+        "exampleRu": "Разумно строить планы заранее."
+      },
+      {
+        "id": "lesson-2-self-confident",
+        "en": "self-confident",
+        "ru": "уверенный в себе",
+        "exampleEn": "She is self-confident in public.",
+        "exampleRu": "На публике она уверена в себе."
+      },
+      {
+        "id": "lesson-2-ambitious",
+        "en": "ambitious",
+        "ru": "амбициозный",
+        "exampleEn": "He has ambitious plans.",
+        "exampleRu": "У него амбициозные планы."
+      },
+      {
+        "id": "lesson-2-stubborn",
+        "en": "stubborn",
+        "ru": "упрямый",
+        "exampleEn": "My brother can be stubborn.",
+        "exampleRu": "Мой брат бывает упрямым."
+      },
+      {
+        "id": "lesson-2-independent",
+        "en": "independent",
+        "ru": "независимый, самостоятельный",
+        "exampleEn": "He is very independent.",
+        "exampleRu": "Он очень самостоятельный."
+      },
+      {
+        "id": "lesson-2-rebellious",
+        "en": "rebellious",
+        "ru": "непокорный, бунтарский",
+        "exampleEn": "She was a rebellious teenager.",
+        "exampleRu": "Она была непокорным подростком."
+      },
+      {
+        "id": "lesson-2-patient",
+        "en": "patient",
+        "ru": "терпеливый",
+        "exampleEn": "Our teacher is patient.",
+        "exampleRu": "Наш учитель терпеливый."
+      },
+      {
+        "id": "lesson-2-honest",
+        "en": "honest",
+        "ru": "честный",
+        "exampleEn": "I trust her because she is honest.",
+        "exampleRu": "Я доверяю ей, потому что она честная."
+      },
+      {
+        "id": "lesson-2-insecure",
+        "en": "insecure",
+        "ru": "неуверенный в себе",
+        "exampleEn": "He sometimes feels insecure.",
+        "exampleRu": "Иногда он чувствует себя неуверенно."
+      },
+      {
+        "id": "lesson-2-sensitive",
+        "en": "sensitive",
+        "ru": "чувствительный, ранимый",
+        "exampleEn": "She is sensitive to criticism.",
+        "exampleRu": "Она болезненно воспринимает критику."
+      },
+      {
+        "id": "lesson-2-sympathetic",
+        "en": "sympathetic",
+        "ru": "сочувствующий, отзывчивый",
+        "exampleEn": "He was sympathetic when I was upset.",
+        "exampleRu": "Он проявил сочувствие, когда я расстроилась."
+      },
+      {
+        "id": "lesson-2-spoilt",
+        "en": "spoilt",
+        "ru": "избалованный",
+        "exampleEn": "He is a spoilt child.",
+        "exampleRu": "Он избалованный ребёнок."
+      },
+      {
+        "id": "lesson-2-imaginative",
+        "en": "imaginative",
+        "ru": "с богатым воображением",
+        "exampleEn": "She has an imaginative idea.",
+        "exampleRu": "У неё оригинальная идея."
+      },
+      {
+        "id": "lesson-2-reliable",
+        "en": "reliable",
+        "ru": "надёжный",
+        "exampleEn": "She is a reliable friend.",
+        "exampleRu": "Она надёжная подруга."
+      },
+      {
+        "id": "lesson-2-sociable",
+        "en": "sociable",
+        "ru": "общительный",
+        "exampleEn": "My cousin is sociable.",
+        "exampleRu": "Мой двоюродный брат общительный."
+      }
+    ]
   }
 ];

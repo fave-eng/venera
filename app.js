@@ -2298,6 +2298,26 @@
     }).join('')}</div>`;
   }
 
+  function renderDialogueGroups(block, blockId) {
+    const items = Array.isArray(block.items) ? block.items : [];
+    const itemMap = new Map(items.map((item, index) => [safeText(item.id, `${index + 1}`), { item, index }]));
+    const groups = Array.isArray(block.dialogueGroups) ? block.dialogueGroups : [];
+    return `<div class="venera-dialogue-groups">${groups.map((group) => {
+      const src = safeText(group.image);
+      const image = src ? `<a class="venera-dialogue-photo" href="${escapeHtml(src)}" target="_blank" rel="noopener"><img src="${escapeHtml(src)}" alt="Workbook conversation ${escapeHtml(group.number)}" loading="lazy"></a>` : '';
+      const lines = (Array.isArray(group.lines) ? group.lines : []).map((line) => {
+        const speaker = escapeHtml(line.speaker || '');
+        const text = line.text ? `<span class="dialogue-plain-text">${escapeHtml(line.text)}</span>` : '';
+        const entries = (Array.isArray(line.itemIds) ? line.itemIds : []).map((itemId) => {
+          const entry = itemMap.get(safeText(itemId));
+          return entry ? renderDialogueItem(entry.item, blockId, entry.index) : '';
+        }).filter(Boolean).join(' ');
+        return `<div class="dialogue-line"><span class="dialogue-speaker">${speaker}</span><div class="dialogue-utterance">${text}${entries}</div></div>`;
+      }).join('');
+      return `<section class="venera-dialogue-group" aria-label="Conversation ${escapeHtml(group.number)}">${image}<div class="venera-dialogue-content"><div class="venera-dialogue-label">CONVERSATION ${escapeHtml(group.number)}</div>${lines}</div></section>`;
+    }).join('')}</div>`;
+  }
+
   function renderPictureLabelGrid(block, blockId) {
     const items = Array.isArray(block.items) ? block.items : [];
     const renderedImages = new Set();
@@ -2409,7 +2429,9 @@
         ? renderPictureLabelGrid(block, id)
         : block.layout === 'email-compose'
           ? renderEmailCompose(block, id)
-          : block.layout === 'dialogue'
+          : block.layout === 'dialogue-groups'
+          ? renderDialogueGroups(block, id)
+        : block.layout === 'dialogue'
         ? renderDialogueExercise(block, id)
         : block.layout === 'crossword'
           ? renderCrosswordExercise(block, id)
@@ -2434,7 +2456,7 @@
       const exerciseBody = hasStickyImage
         ? `<div class="exercise-sticky-layout"><div class="exercise-sticky-media">${image}</div><div class="exercise-sticky-content">${intro}${exerciseContent}</div></div>`
         : `${image}${intro}${exerciseContent}`;
-      return `<article class="card lesson-block exercise-card${block.layout === 'dialogue' ? ' dialogue-card' : ''}${hasStickyImage ? ' has-sticky-image' : ''}" data-task="${escapeHtml(id)}" data-type="exercise">
+      return `<article class="card lesson-block exercise-card${(block.layout === 'dialogue' || block.layout === 'dialogue-groups') ? ' dialogue-card' : ''}${hasStickyImage ? ' has-sticky-image' : ''}" data-task="${escapeHtml(id)}" data-type="exercise">
         <div class="exercise-heading">${Object.prototype.hasOwnProperty.call(block, 'eyebrow') ? (safeText(block.eyebrow) ? `<span class="eyebrow">${escapeHtml(safeText(block.eyebrow))}</span>` : '') : '<span class="eyebrow">Exercise</span>'}<h3>${title}</h3>${block.instructions ? `<p class="muted exercise-instructions">${escapeHtml(block.instructions)}</p>` : ''}${player}${wordBank}${wordBanks}</div>
         ${exerciseBody}
       </article>`;
