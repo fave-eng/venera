@@ -2,3 +2,6 @@ project_id = "zqzgarvmpqqqaobeicpc"
 
 [functions.notify-venera-telegram]
 verify_jwt = false
+
+[functions.diagnostics-venera]
+verify_jwt = false
