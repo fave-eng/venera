@@ -255,6 +255,7 @@
     }
   }
 
+
   async function sendTelegramTest() {
     if (busy) return;
     setBusy(true);
@@ -267,15 +268,12 @@
       if (result.topicId !== EXPECTED_TOPIC || !result.telegramMessageId) {
         throw Error('Telegram не вернул подтверждение отправки в ожидаемую тему');
       }
-      report.telegramSend = {
-        status: 'ok', topicId: result.topicId,
-        telegramMessageId: result.telegramMessageId,
-        checkedAt: new Date().toISOString()
-      };
+      report.telegramSend = { status: 'ok', topicId: result.topicId,
+        telegramMessageId: result.telegramMessageId, checkedAt: new Date().toISOString() };
       addCheck('Telegram · реальная отправка в тему №5', 'ok',
-        `Telegram подтвердил отправку: тема ${result.topicId}, message_id ${result.telegramMessageId}`);
+        'Telegram подтвердил отправку: тема ' + result.topicId + ', message_id ' + result.telegramMessageId);
       state.className = 'summary ok';
-      state.textContent = `Сообщение отправлено в тему №5. Telegram message_id: ${result.telegramMessageId}`;
+      state.textContent = 'Сообщение отправлено в тему №5. Telegram message_id: ' + result.telegramMessageId;
     } catch (err) {
       const detail = describe(err);
       report.telegramSend = { status: 'bad', error: detail, checkedAt: new Date().toISOString() };
