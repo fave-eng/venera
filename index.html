@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="Venera's personal English learning space">
+  <meta name="theme-color" content="#4f46e5">
+  <title>Venera's English Space</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="config.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body data-page="home" data-view="home">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="hero hero-home">
+    <span class="star one" aria-hidden="true">✦</span>
+    <span class="star two" aria-hidden="true">✦</span>
+    <span class="star three" aria-hidden="true">✦</span>
+    <div class="container hero-content reveal">
+      <span class="hero-badge">✦ <span data-config="level">A1</span> Level · Individual Course</span>
+      <h1><span data-config="nameEn">Venera</span>’s English Space 🚀</h1>
+      <p>Your personal space for growing your English, one step at a time</p>
+    </div>
+    <svg class="hero-wave" viewBox="0 0 1440 100" preserveAspectRatio="none" aria-hidden="true">
+      <path fill="#f8fafc" d="M0,66 C220,102 410,10 696,52 C963,91 1115,99 1440,35 L1440,100 L0,100 Z"></path>
+    </svg>
+  </header>
+  <main id="main" class="main-content container">
+    <section class="section reveal" aria-labelledby="welcome-heading">
+      <div class="section-heading"><div><span class="eyebrow">Welcome</span><h2 id="welcome-heading">Nice to see you here!</h2></div></div>
+      <div class="card venera-welcome">
+        <h3>This is your English learning space ✨</h3>
+        <p>You’re at the beginning of your learning journey. We’ll add resources here as your course develops.</p>
+        <p>For now, explore your course information below. See you in class!</p>
+      </div>
+    </section>
+    <section class="section reveal" aria-labelledby="course-heading">
+      <div class="section-heading"><div><span class="eyebrow">Your course</span><h2 id="course-heading">Getting started</h2></div></div>
+      <div class="venera-stats">
+        <div class="card stat-card"><span class="venera-muted-label">Current level</span><strong data-config="level">A1</strong><span>Beginner</span></div>
+        <div class="card stat-card"><span class="venera-muted-label">Coursebook</span><strong data-config="textbook">English File</strong><span>Book level: <span data-config="textbookEdition">B1</span></span></div>
+      </div>
+    </section>
+    <section class="section reveal" aria-labelledby="materials-heading">
+      <div class="section-heading"><div><span class="eyebrow">Your learning space</span><h2 id="materials-heading">Course materials</h2></div></div>
+      <div class="card venera-resource-empty">
+        <div class="empty-state"><div class="empty-state-icon" aria-hidden="true">📖</div>
+          <h3>Your space is ready</h3>
+          <p>No course materials have been added yet. Everything will appear here when it's ready.</p>
+        </div>
+      </div>
+    </section>
+    <section class="section reveal" aria-labelledby="book-heading">
+      <div class="card book-card"><div class="book-cover" aria-hidden="true">📘</div>
+        <div><span class="eyebrow">Main coursebook</span><h3 id="book-heading" data-config="textbook">English File</h3><p class="book-edition">Book level: <span data-config="textbookEdition">B1</span></p></div>
+      </div>
+    </section>
+    <footer class="venera-footer">English Space · A little progress every day</footer>
+  </main>
+</body>
+</html>
