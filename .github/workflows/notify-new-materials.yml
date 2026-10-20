@@ -1,4 +1,4 @@
-name: 2 - Notify about new Venera homework
+name: 2 - Notify about new materials
 on:
   workflow_dispatch:
     inputs:
