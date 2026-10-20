@@ -7,6 +7,15 @@ jobs:
   verify:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
       - name: Check Edge Function health
         run: |
           curl --fail-with-body --show-error --silent "https://zqzgarvmpqqqaobeicpc.supabase.co/functions/v1/notify-venera-telegram"
+      - name: Send one test message to Venera topic 5
+        env:
+          NOTIFY_WEBHOOK_SECRET: ${{ secrets.NOTIFY_WEBHOOK_SECRET }}
+          NOTIFICATION_ACTION: test
+        run: node scripts/send-notification.mjs
