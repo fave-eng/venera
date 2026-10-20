@@ -1,0 +1,4 @@
+project_id = "zqzgarvmpqqqaobeicpc"
+
+[functions.notify-venera-telegram]
+verify_jwt = false

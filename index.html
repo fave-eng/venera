@@ -3,59 +3,96 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="description" content="Venera's personal English learning space">
-  <meta name="theme-color" content="#4f46e5">
-  <title>Venera's English Space</title>
+  <meta name="description" content="Personal English learning space">
+  <title>Venera’s English Space</title>
   <link rel="stylesheet" href="styles.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
   <script src="config.js" defer></script>
+  <script src="data/vocabulary-data.js" defer></script>
+  <script src="data/grammar-data.js" defer></script>
   <script src="app.js" defer></script>
 </head>
-<body data-page="home" data-view="home">
+<body class="has-bottom-nav" data-page="home" data-view="home">
   <a class="skip-link" href="#main">Skip to content</a>
+
   <header class="hero hero-home">
-    <span class="star one" aria-hidden="true">✦</span>
-    <span class="star two" aria-hidden="true">✦</span>
-    <span class="star three" aria-hidden="true">✦</span>
+    <span class="star one">✦</span><span class="star two">✦</span><span class="star three">✦</span>
     <div class="container hero-content reveal">
-      <span class="hero-badge">✦ <span data-config="level">A1</span> Level · Individual Course</span>
-      <h1><span data-config="nameEn">Venera</span>’s English Space 🚀</h1>
+      <span class="hero-badge">✦ <span data-config="level"></span> Level · Individual Course</span>
+      <h1><span data-config="nameEn"></span>’s English Space 🚀</h1>
       <p>Your personal space for growing your English, one step at a time</p>
     </div>
-    <svg class="hero-wave" viewBox="0 0 1440 100" preserveAspectRatio="none" aria-hidden="true">
-      <path fill="#f8fafc" d="M0,66 C220,102 410,10 696,52 C963,91 1115,99 1440,35 L1440,100 L0,100 Z"></path>
-    </svg>
+    <svg class="hero-wave" viewBox="0 0 1440 100" preserveAspectRatio="none" aria-hidden="true"><path fill="#f8fafc" d="M0,66 C220,102 410,10 696,52 C963,91 1115,99 1440,35 L1440,100 L0,100 Z"></path></svg>
   </header>
+
   <main id="main" class="main-content container">
+
     <section class="section reveal" aria-labelledby="welcome-heading">
-      <div class="section-heading"><div><span class="eyebrow">Welcome</span><h2 id="welcome-heading">Nice to see you here!</h2></div></div>
-      <div class="card venera-welcome">
-        <h3>This is your English learning space ✨</h3>
-        <p>You’re at the beginning of your learning journey. We’ll add resources here as your course develops.</p>
-        <p>For now, explore your course information below. See you in class!</p>
+      <div class="section-heading"><div><span class="eyebrow">Welcome</span><h2 id="welcome-heading">Welcome to your English Space!</h2></div></div>
+      <div class="card"><h3>Nice to meet you, Venera!</h3><p class="muted" style="margin-top:10px">Your learning space is ready. We will add homework, vocabulary and grammar as you progress through the course.</p></div>
+    </section>
+
+    <section class="section reveal" aria-labelledby="progress-title">
+      <div class="section-heading"><div><span class="eyebrow">Starting point</span><h2 id="progress-title">My progress</h2></div></div>
+      <div class="stats-grid">
+        <div class="card stat-card"><strong id="home-stat-completed">0</strong><span>Homework completed</span></div>
+        <div class="card stat-card"><strong id="vocab-stat-known">0</strong><span>Words learned</span></div>
+        <div class="card stat-card"><strong id="grammar-stat-passed">0</strong><span>Grammar topics</span></div>
+        <div class="card stat-card"><strong data-config="level"></strong><span>Level</span></div>
+      </div>
+      <div class="card section">
+        <div class="progress-list" id="home-progress-list"></div>
       </div>
     </section>
-    <section class="section reveal" aria-labelledby="course-heading">
-      <div class="section-heading"><div><span class="eyebrow">Your course</span><h2 id="course-heading">Getting started</h2></div></div>
-      <div class="venera-stats">
-        <div class="card stat-card"><span class="venera-muted-label">Current level</span><strong data-config="level">A1</strong><span>Beginner</span></div>
-        <div class="card stat-card"><span class="venera-muted-label">Coursebook</span><strong data-config="textbook">English File</strong><span>Book level: <span data-config="textbookEdition">B1</span></span></div>
+
+    <section class="section reveal" aria-labelledby="quick-title">
+      <div class="section-heading"><div><span class="eyebrow">Navigation</span><h2 id="quick-title">Quick access</h2></div></div>
+      <div class="quick-grid">
+        <a class="card interactive quick-card" href="homework.html">
+          <div><div class="icon-box icon-indigo">📝</div><h3>Homework</h3><p>Interactive exercises and tasks after each lesson.</p></div><span class="arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="card interactive quick-card" href="vocabulary-hub.html">
+          <div><div class="icon-box icon-rose">💥</div><h3>Vocabulary Hub</h3><p>Flashcards and practice tools for learning new words.</p></div><span class="arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="card interactive quick-card wide" href="grammar.html">
+          <div><div class="icon-box icon-sky">📐</div><h3>Grammar</h3><p>Clear explanations and practice for published grammar topics.</p></div><span class="arrow" aria-hidden="true">→</span>
+        </a>
       </div>
     </section>
-    <section class="section reveal" aria-labelledby="materials-heading">
-      <div class="section-heading"><div><span class="eyebrow">Your learning space</span><h2 id="materials-heading">Course materials</h2></div></div>
-      <div class="card venera-resource-empty">
-        <div class="empty-state"><div class="empty-state-icon" aria-hidden="true">📖</div>
-          <h3>Your space is ready</h3>
-          <p>No course materials have been added yet. Everything will appear here when it's ready.</p>
+
+    <section class="section reveal" aria-labelledby="current-title">
+      <div class="section-heading"><div><span class="eyebrow">Continue</span><h2 id="current-title">Current material</h2></div></div>
+      <div id="current-material"></div>
+    </section>
+
+    <section class="section reveal knowledge-section" aria-labelledby="knowledge-title">
+      <div class="section-heading knowledge-heading">
+        <div>
+          <span class="eyebrow">Reference</span>
+          <h2 id="knowledge-title">Knowledge base</h2>
+          <p class="knowledge-heading-copy">Your course reference materials will appear here when the first topics are published.</p>
         </div>
       </div>
+      <div id="knowledge-base-root"></div>
     </section>
-    <section class="section reveal" aria-labelledby="book-heading">
-      <div class="card book-card"><div class="book-cover" aria-hidden="true">📘</div>
-        <div><span class="eyebrow">Main coursebook</span><h3 id="book-heading" data-config="textbook">English File</h3><p class="book-edition">Book level: <span data-config="textbookEdition">B1</span></p></div>
+
+    <section class="section reveal" aria-labelledby="book-title">
+      <div class="card book-card">
+        <div class="book-cover" aria-hidden="true">📘</div>
+        <div><span class="eyebrow">Main coursebook</span><h3 id="book-title" data-config="textbook"></h3><p class="book-edition" data-config="textbookEdition"></p></div>
       </div>
     </section>
-    <footer class="venera-footer">English Space · A little progress every day</footer>
+
   </main>
+
+  <nav class="bottom-nav" aria-label="Main navigation">
+    <a class="nav-link" data-nav="home" href="index.html"><span class="nav-icon">🏠</span><span>Home</span></a>
+    <a class="nav-link" data-nav="homework" href="homework.html"><span class="nav-icon">📝</span><span>HW</span></a>
+    <a class="nav-link" data-nav="grammar" href="grammar.html"><span class="nav-icon">📐</span><span>Grammar</span></a>
+    <a class="nav-link" data-nav="vocabulary" href="vocabulary-hub.html"><span class="nav-icon">💥</span><span>Vocab</span></a>
+  </nav>
+  <div class="toast" id="app-toast" role="status" aria-live="polite"></div>
+
 </body>
 </html>

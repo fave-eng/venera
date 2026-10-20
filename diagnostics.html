@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Диагностика подключений · Венера</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="config.js" defer></script>
+  <script src="data/vocabulary-data.js" defer></script>
+  <script src="data/grammar-data.js" defer></script><script src="diagnostics.js" defer></script>
+  <style>.diag-wrap{width:min(100%,800px);margin:32px auto;padding:0 18px}.diag-head{margin-bottom:22px}.diag-head h1{font-size:clamp(1.7rem,5vw,2.5rem)}.diag-row{border-top:1px solid var(--border);padding:12px 0;display:flex;gap:12px;justify-content:space-between;flex-wrap:wrap}.diag-row strong{color:var(--dark)}.diag-state{font-weight:800}.diag-state.ok{color:#15803d}.diag-state.bad{color:#b91c1c}.diag-state.pending{color:var(--muted)}.diag-note{margin-top:20px;padding:16px;border-radius:14px;background:#f1f5f9;color:#334155}.diag-actions{margin:18px 0}</style>
+</head>
+<body><main class="diag-wrap">
+  <div class="diag-head"><span class="eyebrow">Служебная страница</span><h1>Диагностика Венеры</h1><p class="muted">Проверка конфигурации сайта и серверной отправки в Telegram. Проверка не отправляет сообщений и не создаёт домашних заданий.</p></div>
+  <div class="diag-actions"><button class="btn btn-primary" type="button" id="run-checks">Проверить подключения</button> <a class="btn btn-secondary" href="index.html">Открыть сайт</a></div>
+  <section class="card"><h2>Результаты</h2><div id="diag-results" role="status" aria-live="polite"><p class="muted">Нажми «Проверить подключения»</p></div></section>
+  <p class="diag-note">Для отправки настоящего тестового сообщения используй GitHub Actions → <b>Venera · Telegram notification</b>. Секрет <code>NOTIFY_WEBHOOK_SECRET</code> нужно добавить в настройки репозитория, иначе отправка не состоится. Нельзя размещать этот секрет в файлах сайта.</p>
+</main></body></html>

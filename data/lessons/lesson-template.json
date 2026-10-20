@@ -1,0 +1,17 @@
+{
+  "id": "lesson-1",
+  "number": 1,
+  "title": "",
+  "subtitle": "",
+  "status": "draft",
+  "vocabularyId": "",
+  "grammarIds": [],
+  "publishedAt": "",
+  "totalPoints": 0,
+  "notification": {
+    "enabled": false,
+    "version": 1
+  },
+  "blocks": [],
+  "templateNote": "This is only a template. To publish the first homework, create lesson-1.json with real content and status=available."
+}
