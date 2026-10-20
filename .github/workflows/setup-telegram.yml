@@ -1,0 +1,12 @@
+name: 1 - Verify Venera Telegram setup
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check Edge Function health
+        run: |
+          curl --fail-with-body --show-error --silent "https://zqzgarvmpqqqaobeicpc.supabase.co/functions/v1/notify-venera-telegram"

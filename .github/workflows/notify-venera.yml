@@ -1,0 +1,43 @@
+name: Venera · Telegram notification
+on:
+  workflow_dispatch:
+    inputs:
+      action:
+        description: 'What to send'
+        type: choice
+        options:
+          - test
+          - new_material
+          - homework_submitted
+        required: true
+        default: test
+      title:
+        description: 'Material title (not needed for test)'
+        type: string
+        required: false
+      description:
+        description: 'Short description (optional)'
+        type: string
+        required: false
+      url:
+        description: 'Full public material URL (optional)'
+        type: string
+        required: false
+permissions:
+  contents: read
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Send Telegram notification
+        run: node scripts/send-notification.mjs
+        env:
+          NOTIFY_WEBHOOK_SECRET: ${{ secrets.NOTIFY_WEBHOOK_SECRET }}
+          NOTIFICATION_ACTION: ${{ inputs.action }}
+          MATERIAL_TITLE: ${{ inputs.title }}
+          MATERIAL_DESCRIPTION: ${{ inputs.description }}
+          MATERIAL_URL: ${{ inputs.url }}

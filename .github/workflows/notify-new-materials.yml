@@ -1,0 +1,24 @@
+name: 2 - Notify about new Venera homework
+on:
+  workflow_dispatch:
+    inputs:
+      lesson_id:
+        description: 'Published lesson ID, e.g. lesson-1'
+        required: true
+        type: string
+permissions:
+  contents: read
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Notify Venera about newly published material
+        env:
+          LESSON_ID: ${{ inputs.lesson_id }}
+          SITE_BASE_URL: ${{ vars.SITE_BASE_URL }}
+          NOTIFY_WEBHOOK_SECRET: ${{ secrets.NOTIFY_WEBHOOK_SECRET }}
+        run: node scripts/prepare-notification.mjs
