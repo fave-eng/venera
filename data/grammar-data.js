@@ -2,350 +2,170 @@ window.GRAMMAR_DATA = [
   {
     "id": "grammar-present-simple-continuous",
     "order": 1,
-    "title": "Present Simple vs Present Continuous: action and non-action verbs",
+    "title": "Action and non-action verbs: Present Simple vs Present Continuous",
     "level": "A1",
     "status": "available",
     "linkedLessonId": "lesson-1",
     "page": "grammar-topic.html?id=grammar-present-simple-continuous",
     "passed": false,
     "attempts": 0,
-    "explanation": "Когда действие повторяется или выражает факт, используй Present Simple. Когда оно происходит сейчас или временно — Present Continuous. Но у глаголов состояния выбор зависит от значения.",
-    "formula": "[[Present Simple]]: do/does + base verb (вопрос/отрицание); he/she/it + -s (утверждение). [[Present Continuous]]: am/is/are + verb-ing.",
+    "explanation": "Чтобы выбрать форму, проверь две вещи: значение глагола и контекст. Сначала отличим действие от состояния, затем сравним времена на примерах.",
+    "formula": "",
     "chapter": [
       {
-        "id": "meaning",
+        "id": "action-or-state",
         "type": "note",
-        "title": "1. Два времени — два разных взгляда на действие",
+        "title": "1. Action или non-action: в чём разница?",
         "paragraphs": [
-          "[[Present Simple]] сообщает о привычке, факте, регулярности или устойчивом состоянии. Говорящий смотрит на ситуацию в целом, а не на отдельный момент.",
-          "[[Present Continuous]] показывает процесс, который происходит сейчас или в текущий временный период. Часто он подчёркивает, что ситуация не постоянная.",
-          "Главный вопрос — не «есть ли слово now», а «что я хочу сказать о действии: это обычно/вообще или это происходит сейчас/временно?»"
+          "Action verbs обозначают то, что человек делает: cook, eat, play, watch, write. Действие может быть привычным или происходить прямо сейчас.",
+          "Non-action (state) verbs обычно называют не процесс, а состояние: мнение, знание, чувство, предпочтение, принадлежность. Такие значения, как правило, не ставят в Continuous."
         ],
         "examples": [
           {
-            "en": "[[I cook]] at home most evenings.",
-            "ru": "Я готовлю дома большинство вечеров. Это привычка."
+            "en": "She is cooking dinner.",
+            "ru": "Она сейчас готовит ужин. Cook — действие, которое идёт в данный момент."
           },
           {
-            "en": "[[I’m cooking]] at home today.",
-            "ru": "Сегодня я готовлю дома. Это конкретный процесс или временная ситуация."
-          },
-          {
-            "en": "She [[works]] in a café.",
-            "ru": "Она работает в кафе (как факт)."
-          },
-          {
-            "en": "She [[is working]] in a café this summer.",
-            "ru": "Этим летом она временно работает в кафе."
+            "en": "I like this soup.",
+            "ru": "Мне нравится этот суп. Like — отношение, а не действие в процессе."
           }
-        ],
-        "tone": "info"
+        ]
       },
       {
-        "id": "compare-meanings",
+        "id": "action-simple-continuous",
         "type": "compare",
-        "title": "2. Когда употребляется каждое время",
+        "title": "2. Action verbs: привычка или процесс?",
         "columns": [
           {
-            "title": "Present Simple",
+            "title": "Present Simple — обычно, регулярно",
             "points": [
-              "Привычки и повторяющиеся действия: every day, usually, often, sometimes, never.",
-              "Общие факты и постоянные ситуации: where someone lives or works.",
-              "Мнения, чувства, знания, владение и другие состояния.",
-              "Вопрос How often…? чаще спрашивает о привычке."
+              "Привычки, повторяющиеся действия, общий факт: usually, often, every day, how often.",
+              "Мы говорим о том, что человек обычно делает, а не о действии в определённую минуту."
             ],
             "examples": [
               {
-                "en": "She [[usually eats]] at home.",
-                "ru": "Обычно она ест дома."
+                "en": "I cook at home most evenings.",
+                "ru": "Я готовлю дома большинство вечеров."
               },
               {
-                "en": "I [[like]] spicy food.",
-                "ru": "Я люблю острую еду."
+                "en": "She works in a café.",
+                "ru": "Она работает в кафе (обычная ситуация)."
               }
             ]
           },
           {
-            "title": "Present Continuous",
+            "title": "Present Continuous — сейчас, временно",
             "points": [
-              "Действие происходит прямо сейчас: right now, at the moment, look, listen.",
-              "Временная ситуация вокруг настоящего: today, this week, this month.",
-              "Изменяющиеся процессы или временные тенденции.",
-              "Вопрос What are you doing…? часто спрашивает о текущем занятии."
+              "Действие происходит сейчас или в текущий временный период: now, at the moment, this week.",
+              "Также используется для договорённого плана на ближайшее будущее: We’re eating out tonight."
             ],
             "examples": [
               {
-                "en": "She [[is eating]] lunch now.",
-                "ru": "Сейчас она обедает."
+                "en": "I’m cooking dinner now.",
+                "ru": "Я сейчас готовлю ужин."
               },
               {
-                "en": "I [[am not eating]] chocolate this month.",
-                "ru": "В этом месяце я временно не ем шоколад."
+                "en": "She is working in a café this summer.",
+                "ru": "Этим летом она временно работает в кафе."
               }
             ]
           }
         ]
       },
       {
-        "id": "forms-simple",
-        "type": "table",
-        "title": "3. Present Simple: как строить утверждения, отрицания и вопросы",
-        "headers": [
-          "Тип",
-          "I / you / we / they",
-          "He / she / it"
-        ],
-        "rows": [
-          [
-            "+",
-            "I [[cook]].",
-            "She [[cooks]]."
-          ],
-          [
-            "−",
-            "I [[do not (don’t) cook]].",
-            "She [[does not (doesn’t) cook]]."
-          ],
-          [
-            "?",
-            "[[Do]] you [[cook]]?",
-            "[[Does]] she [[cook]]?"
-          ],
-          [
-            "Краткий ответ",
-            "Yes, I do. / No, I don’t.",
-            "Yes, she does. / No, she doesn’t."
-          ]
-        ],
-        "note": "В he/she/it к смысловому глаголу в утверждении добавляем -s/-es. После does/doesn’t используем начальную форму без -s."
-      },
-      {
-        "id": "spelling",
+        "id": "non-action-simple",
         "type": "note",
-        "title": "4. Окончание -s / -es у he, she, it",
+        "title": "3. Non-action verbs: состояние — обычно Present Simple",
         "paragraphs": [
-          "Обычно добавляем [[-s]]: cooks, likes, plays.",
-          "После -ss, -sh, -ch, -x, -o часто добавляем [[-es]]: watches, washes, goes.",
-          "Если глагол заканчивается на согласную + y: [[study → studies]], [[try → tries]]; после гласной + y: [[play → plays]]."
+          "Мнение и знание: believe, know, understand, recognize, think (= считать). Предпочтения и чувства: like, love, want, need. Принадлежность: belong, own, have (= иметь). Восприятие: sound, seem, look (= выглядеть), taste (= быть на вкус), smell (= пахнуть).",
+          "Даже если состояние относится к этому моменту, обычно говорим I don’t recognize her, а не I’m not recognizing her. Важно значение глагола, а не наличие слова now.",
+          "Это не запрет на Continuous для любого употребления этих слов: некоторые из них обозначают разные действия в разных значениях. Сравни их ниже."
         ],
         "examples": [
           {
-            "en": "My boss [[cycles]] to work.",
-            "ru": "Мой начальник ездит на работу на велосипеде."
+            "en": "I believe him.",
+            "ru": "Я ему верю (мнение)."
           },
           {
-            "en": "She [[tries]] to eat healthier food.",
-            "ru": "Она старается есть более здоровую пищу."
+            "en": "This bag doesn’t belong to me.",
+            "ru": "Эта сумка мне не принадлежит."
+          },
+          {
+            "en": "That cake looks delicious.",
+            "ru": "Этот торт выглядит аппетитно."
           }
-        ],
-        "tone": "info"
+        ]
       },
       {
-        "id": "forms-continuous",
+        "id": "meaning-change",
         "type": "table",
-        "title": "5. Present Continuous: am / is / are + verb-ing",
-        "headers": [
-          "Тип",
-          "I",
-          "He / she / it",
-          "You / we / they"
-        ],
-        "rows": [
-          [
-            "+",
-            "I [[am cooking]].",
-            "She [[is cooking]].",
-            "They [[are cooking]]."
-          ],
-          [
-            "−",
-            "I [[am not cooking]].",
-            "She [[isn’t cooking]].",
-            "They [[aren’t cooking]]."
-          ],
-          [
-            "?",
-            "[[Am]] I [[cooking]]?",
-            "[[Is]] she [[cooking]]?",
-            "[[Are]] they [[cooking]]?"
-          ],
-          [
-            "Краткий ответ",
-            "Yes, I am. / No, I’m not.",
-            "Yes, she is. / No, she isn’t.",
-            "Yes, they are. / No, they aren’t."
-          ]
-        ],
-        "note": "Можно сокращать: I’m, she’s, they’re; isn’t, aren’t. Не пропускай am/is/are в вопросах и отрицаниях."
-      },
-      {
-        "id": "ing",
-        "type": "note",
-        "title": "6. Как образуется форма -ing",
-        "paragraphs": [
-          "Обычно просто прибавляем -ing: cook → cooking, play → playing.",
-          "Непроизносимая -e в конце обычно исчезает: make → making, have → having.",
-          "У коротких глаголов с ударным гласным + согласной последняя согласная может удваиваться: get → getting, sit → sitting. Но: eat → eating.",
-          "После -ie: lie → lying. Для Unit 1A прежде всего важны having, getting, trying, eating."
-        ],
-        "examples": [
-          {
-            "en": "We [[are having]] a party.",
-            "ru": "Мы сейчас устраиваем вечеринку."
-          },
-          {
-            "en": "Are you [[watching]] the TV?",
-            "ru": "Ты сейчас смотришь телевизор?"
-          }
-        ],
-        "tone": "info"
-      },
-      {
-        "id": "state-verbs",
-        "type": "note",
-        "title": "7. Action и non-action verbs: почему не все глаголы образуют Continuous",
-        "paragraphs": [
-          "[[Action verbs]] обозначают действия: cook, eat, play, run, write, watch, work. Их обычно можно использовать в обоих временах — выбор зависит от контекста.",
-          "[[Non-action / state verbs]] обычно описывают состояния, ощущения, знания, предпочтения и отношения: know, believe, understand, recognize, belong, like, love, want, need, own, seem.",
-          "Когда эти глаголы выражают своё обычное значение состояния, чаще нужен [[Present Simple]], даже если состояние актуально именно сейчас: I don’t recognize her; this bag doesn’t belong to me.",
-          "Не делай вывод, что все глаголы чувств никогда не используются в Continuous: значение и контекст важнее, чем список."
-        ],
-        "examples": [
-          {
-            "en": "I [[believe]] him.",
-            "ru": "Я верю ему (мнение, а не действие в процессе)."
-          },
-          {
-            "en": "The bag [[doesn’t belong]] to me.",
-            "ru": "Сумка не принадлежит мне."
-          },
-          {
-            "en": "The music [[sounds]] awful.",
-            "ru": "Музыка звучит ужасно."
-          },
-          {
-            "en": "I [[am listening]] to the music.",
-            "ru": "Я слушаю музыку (действие)."
-          }
-        ],
-        "tone": "info"
-      },
-      {
-        "id": "state-meaning",
-        "type": "table",
-        "title": "8. Один глагол — разные значения",
+        "title": "4. Один глагол — два значения",
         "headers": [
           "Глагол",
-          "Состояние (обычно Simple)",
-          "Действие (возможен Continuous)"
+          "Состояние → Simple",
+          "Действие → возможно Continuous"
         ],
         "rows": [
           [
             "think",
-            "I [[think]] this is easy. = Я считаю…",
-            "I [[am thinking]] about dinner. = Я размышляю…"
+            "I think it’s easy. — Я считаю, что это легко.",
+            "I’m thinking about dinner. — Я размышляю об ужине."
           ],
           [
             "have",
-            "I [[have]] a car. = У меня есть машина.",
-            "I [[am having]] lunch. = Я обедаю."
+            "I have a car. — У меня есть машина.",
+            "I’m having lunch. — Я обедаю."
           ],
           [
             "look",
-            "That cake [[looks]] delicious. = Выглядит аппетитно.",
-            "She [[is looking]] at the menu. = Смотрит в меню."
-          ],
-          [
-            "taste",
-            "This soup [[tastes]] spicy. = Имеет вкус.",
-            "The chef [[is tasting]] the soup. = Пробует суп."
+            "This cake looks good. — Торт хорошо выглядит.",
+            "She’s looking at the menu. — Она смотрит в меню."
           ],
           [
             "smell",
-            "Something [[smells]] good. = Пахнет приятно.",
-            "He [[is smelling]] the flowers. = Нюхает цветы."
+            "The soup smells good. — Суп приятно пахнет.",
+            "He’s smelling the flowers. — Он нюхает цветы."
+          ],
+          [
+            "taste",
+            "The soup tastes spicy. — Суп острый на вкус.",
+            "The chef is tasting the soup. — Шеф пробует суп."
           ]
         ],
-        "note": "Оттенки значения меняются — поэтому предложения с одним и тем же глаголом не обязаны иметь одно и то же время."
+        "note": "Сравни смысл, а не только форму. Think = считать — обычно Simple; think about = обдумывать — Continuous возможен."
       },
       {
-        "id": "adverbs",
-        "type": "note",
-        "title": "9. Слова-подсказки, порядок слов и вопросы",
-        "paragraphs": [
-          "В Present Simple наречия частоты usually, often, sometimes обычно стоят [[перед смысловым глаголом]], но [[после be]]: She often cooks. / She is usually at home.",
-          "В Continuous маркеры now / at the moment / this week помогают увидеть временность, но само наличие «now» не делает глагол состояния Continuous.",
-          "В вопросе Simple [[do/does + subject + base verb]]; в Continuous [[am/is/are + subject + verb-ing]]."
+        "id": "forms",
+        "type": "table",
+        "title": "5. Как построить предложение",
+        "headers": [
+          "Форма",
+          "Present Simple",
+          "Present Continuous"
         ],
-        "examples": [
-          {
-            "en": "[[How often does]] your teacher [[give]] homework?",
-            "ru": "Как часто преподаватель задаёт домашнюю работу?"
-          },
-          {
-            "en": "[[What is]] he [[doing]]?",
-            "ru": "Что он сейчас делает?"
-          },
-          {
-            "en": "[[Do]] you [[think]] English is easy?",
-            "ru": "Ты считаешь английский лёгким?"
-          }
+        "rows": [
+          [
+            "Утверждение",
+            "I cook. / She cooks.",
+            "I am cooking. / She is cooking."
+          ],
+          [
+            "Отрицание",
+            "I don’t cook. / She doesn’t cook.",
+            "I’m not cooking. / She isn’t cooking."
+          ],
+          [
+            "Вопрос",
+            "Do you cook? / Does she cook?",
+            "Are you cooking? / Is she cooking?"
+          ],
+          [
+            "Краткий ответ",
+            "Yes, I do. / No, she doesn’t.",
+            "Yes, I am. / No, she isn’t."
+          ]
         ],
-        "tone": "info"
-      },
-      {
-        "id": "choose",
-        "type": "decision",
-        "title": "10. Алгоритм выбора времени",
-        "items": [
-          {
-            "question": "Это состояние или мнение: know, believe, belong, like, think (= считать)?",
-            "yes": "Обычно используй Present Simple.",
-            "no": "Перейди к следующему вопросу."
-          },
-          {
-            "question": "Это привычка, общее правило, факт или повторяющееся действие?",
-            "yes": "Present Simple: do/does; в утверждении he/she/it + -s.",
-            "no": "Перейди к следующему вопросу."
-          },
-          {
-            "question": "Действие происходит сейчас или ситуация временная в этот период?",
-            "yes": "Present Continuous: am/is/are + -ing.",
-            "no": "Определи контекст и значение глагола, не ориентируйся только на одно слово-подсказку."
-          }
-        ]
-      },
-      {
-        "id": "mistakes",
-        "type": "mistakes",
-        "title": "11. Типичные ошибки и как их исправить",
-        "items": [
-          {
-            "wrong": "My mother doesn’t doing exercise.",
-            "right": "My mother doesn’t do exercise.",
-            "why": "После doesn’t в Present Simple используем начальную форму."
-          },
-          {
-            "wrong": "She is play tennis at the moment.",
-            "right": "She is playing tennis at the moment.",
-            "why": "В Continuous нужна форма verb-ing."
-          },
-          {
-            "wrong": "I am knowing the answer.",
-            "right": "I know the answer.",
-            "why": "Know в обычном значении знания — глагол состояния."
-          },
-          {
-            "wrong": "Are you thinking English is easy?",
-            "right": "Do you think English is easy?",
-            "why": "Think здесь означает «считать», поэтому нужен Simple."
-          },
-          {
-            "wrong": "This cake is looking delicious.",
-            "right": "This cake looks delicious.",
-            "why": "Look = казаться/выглядеть, описывает впечатление."
-          }
-        ]
+        "note": "Present Simple: с he/she/it добавляем -s/-es (cook → cooks, watch → watches); после does/doesn’t глагол без -s. Present Continuous: am/is/are + -ing (cook → cooking, have → having, get → getting). Не пропускай am/is/are."
       }
     ],
     "exercises": [
