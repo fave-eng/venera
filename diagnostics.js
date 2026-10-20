@@ -1,7 +1,7 @@
 (() => {
   'use strict';
 
-  const VERSION = 'venera-diagnostics-v3';
+  const VERSION = 'venera-diagnostics-v4';
   const STUDENT_ID = 'venera';
   const EXPECTED_TOPIC = 5;
   const PREFIX = '__diag_venera__';
@@ -31,6 +31,8 @@
   const dbResultEl = $('#db-write-result');
   const runBtn = $('#run-all');
   const writeBtn = $('#test-db-write');
+  const telegramBtn = $('#send-telegram-test');
+  const telegramResultEl = $('#telegram-send-result');
   const cfgEl = $('#config-info');
   const tgEl = $('#telegram-info');
   let client;
@@ -70,10 +72,10 @@
   }
   function reset() {
     checksEl.replaceChildren(); tgEl.replaceChildren();
-    report = { version: VERSION, startedAt: new Date().toISOString(), checks: [], writeProbes: {}, errors: [] };
+    report = { version: VERSION, startedAt: new Date().toISOString(), checks: [], writeProbes: {}, telegramSend: null, errors: [] };
     showReport();
   }
-  function setBusy(value) { busy = value; runBtn.disabled = value; writeBtn.disabled = value; }
+  function setBusy(value) { busy = value; runBtn.disabled = value; writeBtn.disabled = value; telegramBtn.disabled = value; }
   function getClient() {
     if (client) return client;
     if (!window.supabase?.createClient) throw Error('Supabase JS SDK не загрузился');
@@ -164,7 +166,7 @@
       addKV(tgEl, 'Тема Telegram', health.recipient?.threadId ?? 'не найдена');
       addKV(tgEl, 'Bot API', health.telegram?.bot?.ok ? 'OK' : 'Ошибка');
       addKV(tgEl, 'Группа', health.telegram?.chat?.ok ? 'OK' : 'Ошибка');
-      addKV(tgEl, 'Фактическая отправка сообщения', 'Отдельный ручной тест в GitHub Actions');
+      addKV(tgEl, 'Фактическая отправка сообщения', 'Нажми «Отправить тестовое сообщение» ниже');
     } catch (err) {
       report.errors.push({ stage: 'read_checks', error: describe(err) });
       addCheck('Диагностика остановлена', 'bad', describe(err));
@@ -253,6 +255,39 @@
     }
   }
 
+
+  async function sendTelegramTest() {
+    if (busy) return;
+    setBusy(true);
+    if (!report.startedAt) reset();
+    telegramResultEl.replaceChildren();
+    const state = domText('div', 'summary', 'Отправляю одно тестовое сообщение в тему №5…');
+    telegramResultEl.append(state);
+    try {
+      const result = await requestDiagnostic('POST', { action: 'telegram_test', studentId: STUDENT_ID });
+      if (result.topicId !== EXPECTED_TOPIC || !result.telegramMessageId) {
+        throw Error('Telegram не вернул подтверждение отправки в ожидаемую тему');
+      }
+      report.telegramSend = { status: 'ok', topicId: result.topicId,
+        telegramMessageId: result.telegramMessageId, checkedAt: new Date().toISOString() };
+      addCheck('Telegram · реальная отправка в тему №5', 'ok',
+        'Telegram подтвердил отправку: тема ' + result.topicId + ', message_id ' + result.telegramMessageId);
+      state.className = 'summary ok';
+      state.textContent = 'Сообщение отправлено в тему №5. Telegram message_id: ' + result.telegramMessageId;
+    } catch (err) {
+      const detail = describe(err);
+      report.telegramSend = { status: 'bad', error: detail, checkedAt: new Date().toISOString() };
+      addCheck('Telegram · реальная отправка в тему №5', 'bad', detail);
+      state.className = 'summary bad';
+      state.textContent = 'Не удалось отправить тест: ' + detail;
+      report.errors.push({ stage: 'telegram_send', error: detail });
+    } finally {
+      report.finishedAt = new Date().toISOString();
+      showReport();
+      setBusy(false);
+    }
+  }
+
   $('#copy-report').addEventListener('click', async () => {
     const text = reportEl.textContent;
     try { await navigator.clipboard.writeText(text); $('#copy-report').textContent = 'Скопировано ✓'; }
@@ -261,6 +296,7 @@
   $('#reload-page').addEventListener('click', () => location.reload());
   runBtn.addEventListener('click', runAll);
   writeBtn.addEventListener('click', runWriteProbes);
+  telegramBtn.addEventListener('click', sendTelegramTest);
   addKV(cfgEl, 'student_id', config.student?.id || 'не задан');
   addKV(cfgEl, 'Уровень', config.student?.level || 'не задан');
   addKV(cfgEl, 'Учебник', `${config.student?.textbook || '—'} ${config.student?.textbookEdition || ''}`);
