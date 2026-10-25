@@ -25,7 +25,6 @@
       "type": "exercise",
       "id": "revision-1a-food-categories",
       "title": "a Circle the word that is different. Explain why.",
-      "instructions": "Circle the word that is different. Explain why.",
       "items": [
         {
           "id": "1",
@@ -141,7 +140,6 @@
       "type": "exercise",
       "id": "revision-1b-food-definitions",
       "title": "b Match the words from the list to definitions 1–8.",
-      "instructions": "Match the words from the list to definitions 1–8.",
       "items": [
         {
           "id": "1",
@@ -155,64 +153,120 @@
           "id": "2",
           "number": 2,
           "prompt": "a vegetable with dark purple skin",
-          "input": "text",
-          "acceptedAnswers": [
-            "aubergine"
-          ]
+          "input": "select",
+          "options": [
+            "aubergine",
+            "avocado",
+            "lobster",
+            "mango",
+            "melon",
+            "red pepper",
+            "squid",
+            "tuna"
+          ],
+          "answer": 0
         },
         {
           "id": "3",
           "number": 3,
           "prompt": "a tropical fruit with hard, dark green skin, soft, light green flesh, and a large seed inside",
-          "input": "text",
-          "acceptedAnswers": [
-            "avocado"
-          ]
+          "input": "select",
+          "options": [
+            "aubergine",
+            "avocado",
+            "lobster",
+            "mango",
+            "melon",
+            "red pepper",
+            "squid",
+            "tuna"
+          ],
+          "answer": 1
         },
         {
           "id": "4",
           "number": 4,
           "prompt": "a sea animal with a soft body, eight arms, and two tentacles",
-          "input": "text",
-          "acceptedAnswers": [
-            "squid"
-          ]
+          "input": "select",
+          "options": [
+            "aubergine",
+            "avocado",
+            "lobster",
+            "mango",
+            "melon",
+            "red pepper",
+            "squid",
+            "tuna"
+          ],
+          "answer": 6
         },
         {
           "id": "5",
           "number": 5,
           "prompt": "a red vegetable that is empty inside",
-          "input": "text",
-          "acceptedAnswers": [
-            "red pepper"
-          ]
+          "input": "select",
+          "options": [
+            "aubergine",
+            "avocado",
+            "lobster",
+            "mango",
+            "melon",
+            "red pepper",
+            "squid",
+            "tuna"
+          ],
+          "answer": 5
         },
         {
           "id": "6",
           "number": 6,
           "prompt": "a tropical fruit, which has a yellow and red skin and is yellow inside",
-          "input": "text",
-          "acceptedAnswers": [
-            "mango"
-          ]
+          "input": "select",
+          "options": [
+            "aubergine",
+            "avocado",
+            "lobster",
+            "mango",
+            "melon",
+            "red pepper",
+            "squid",
+            "tuna"
+          ],
+          "answer": 3
         },
         {
           "id": "7",
           "number": 7,
           "prompt": "a sea creature which has a hard shell and eight legs",
-          "input": "text",
-          "acceptedAnswers": [
-            "lobster"
-          ]
+          "input": "select",
+          "options": [
+            "aubergine",
+            "avocado",
+            "lobster",
+            "mango",
+            "melon",
+            "red pepper",
+            "squid",
+            "tuna"
+          ],
+          "answer": 2
         },
         {
           "id": "8",
           "number": 8,
           "prompt": "a large round fruit with a thick yellow or green skin and lots of seeds",
-          "input": "text",
-          "acceptedAnswers": [
-            "melon"
-          ]
+          "input": "select",
+          "options": [
+            "aubergine",
+            "avocado",
+            "lobster",
+            "mango",
+            "melon",
+            "red pepper",
+            "squid",
+            "tuna"
+          ],
+          "answer": 4
         }
       ],
       "hideAnswersOnError": true,
@@ -232,7 +286,6 @@
       "type": "exercise",
       "id": "revision-1d-food-adjectives",
       "title": "d Complete the sentences with a word from the list.",
-      "instructions": "Complete the sentences with a word from the list.",
       "items": [
         {
           "id": "1",
@@ -334,7 +387,6 @@
       "type": "exercise",
       "id": "revision-1e-phrasal-verbs",
       "title": "e Match the phrasal verbs in bold in questions 1–3 to definitions a–c.",
-      "instructions": "Match the phrasal verbs in bold in questions 1–3 to definitions a–c.",
       "items": [
         {
           "id": "1",
@@ -380,7 +432,6 @@
       "type": "exercise",
       "id": "revision-1g-listening-vocabulary",
       "title": "g Complete the sentences.",
-      "instructions": "Complete the sentences.",
       "items": [
         {
           "id": "1",
@@ -497,11 +548,10 @@
       "type": "exercise",
       "id": "revision-2a-vowel-chart",
       "title": "a Write the words in the chart.",
-      "instructions": "Write the words in the chart.",
       "items": [],
       "hideAnswersOnError": true,
       "inlineNumberedItems": true,
-      "layout": "ed-pronunciation",
+      "layout": "word-stress-drag",
       "verbs": [
         "beef",
         "carton",
@@ -604,7 +654,6 @@
       "type": "exercise",
       "id": "revision-1c-crossword",
       "title": "c Read the sentences and complete the crossword with the missing adjectives.",
-      "instructions": "Read the sentences and complete the crossword with the missing adjectives.",
       "layout": "crossword-grid",
       "gridColumns": 17,
       "gridRows": 15,

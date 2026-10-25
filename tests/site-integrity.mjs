@@ -100,8 +100,24 @@ const usedOriginal = new Set([...blocks, ...blocks2].map(x => x.id))
 for (const block of exercises3) assert(!usedOriginal.has(block.id), `HW3 overlaps previous exercise ${block.id}`)
 assert.deepEqual(exercises3.flatMap(block => (block.items || []).filter(item => !item.example && item.scored !== false)).length +
   exercises3.flatMap(block => (block.entries || []).filter(e => !e.example)).length +
-  exercises3.flatMap(block => (block.layout === 'ed-pronunciation' ? (block.columns || []).flatMap(c => c.answers || []) : [])).length, lesson3.totalPoints)
+  exercises3.flatMap(block => (block.layout === 'word-stress-drag' ? (block.columns || []).flatMap(c => c.answers || []) : [])).length, lesson3.totalPoints)
 assert.equal(lesson3.totalPoints, 50)
+const chart3 = exercises3.find(b => b.id === 'revision-2a-vowel-chart')
+assert.equal(chart3.layout, 'word-stress-drag')
+assert.equal(chart3.columns.length, 8)
+assert.equal(chart3.columns.flatMap(c => c.answers || []).length, 15)
+const definitions3 = exercises3.find(b => b.id === 'revision-1b-food-definitions')
+assert.equal(definitions3.items.filter(i => !i.example).length, 7)
+for (const item of definitions3.items.filter(i => !i.example)) {
+  assert.equal(item.input, 'select')
+  assert.equal(item.options[item.answer], definitions3.wordBank[item.answer])
+}
+for (const block of exercises3) {
+  const heading = block.title.replace(/^\s*[a-z][.)]?\s+/i, '').trim()
+  assert(!block.instructions || block.instructions !== heading, `Duplicate heading/instructions: ${block.id}`)
+}
+assert(app.includes('renderWordStressDragExercise'), 'Drag-and-drop renderer unavailable')
+
 assert.equal(lesson3.notification.enabled, false, 'No automatic notification')
 assert.equal(exercises3[6].layout, 'crossword-grid')
 const entries3 = exercises3[6].entries

@@ -1529,8 +1529,9 @@
       const key = safeText(column.key);
       const capacity = Array.isArray(column.answers) ? column.answers.length : 0;
       const example = column.example ? `<div class="word-stress-example"><span class="continuous-example-label">EXAMPLE</span><strong>${escapeHtml(column.example)}</strong></div>` : '';
+      const cue = column.cue ? `<span class="word-stress-cue">${escapeHtml(column.cue)}</span>` : '';
       return `<section class="word-stress-column" data-word-stress-column="${escapeHtml(key)}" data-word-stress-capacity="${capacity}">
-        <header>${escapeHtml(column.label || key)}</header>
+        <header><strong>${escapeHtml(column.label || key)}</strong>${cue}</header>
         ${example}
         <div class="word-stress-dropzone" data-word-stress-dropzone="${escapeHtml(key)}" tabindex="0" aria-label="${escapeHtml(column.label || key)} drop zone"></div>
       </section>`;
@@ -1557,7 +1558,9 @@
   function checkWordStressDragBlock(block, node) {
     const actual = collectWordStressDragAnswers(block, node);
     let correctCount = 0;
-    let total = 0;
+    // The maximum points never depends on where the student drags words.
+    const total = (Array.isArray(block.columns) ? block.columns : []).reduce(
+      (count, column) => count + (Array.isArray(column.answers) ? column.answers.length : 0), 0);
     (Array.isArray(block.columns) ? block.columns : []).forEach((column) => {
       const key = safeText(column.key);
       const expected = new Set((Array.isArray(column.answers) ? column.answers : []).map((answer) => normalizeAnswer(answer)));
@@ -1566,11 +1569,9 @@
         const correct = expected.has(normalizeAnswer(chip.dataset.wordStressChip));
         chip.classList.toggle('is-correct', correct);
         chip.classList.toggle('is-wrong', !correct);
-        total += 1;
         if (correct) correctCount += 1;
       });
       const missing = Math.max(0, expected.size - chips.length);
-      total += missing;
       node.querySelector(`[data-word-stress-column="${CSS.escape(key)}"]`)?.classList.toggle('has-missing', missing > 0);
     });
     return { actual, correctCount, total };
@@ -1773,6 +1774,12 @@
         });
         chip.addEventListener('dragend', () => chip.classList.remove('is-dragging'));
         chip.addEventListener('click', () => {
+          // A full drop zone can be covered by chips. On touch screens, tapping an
+          // existing chip in a column must still let the selected word land there.
+          if (selectedChip && selectedChip !== chip) {
+            const destination = chip.closest('[data-word-stress-dropzone]');
+            if (destination) { moveChip(selectedChip, destination); return; }
+          }
           const wasSelected = chip === selectedChip;
           clearSelection();
           if (!wasSelected) { selectedChip = chip; chip.classList.add('is-selected'); }
@@ -2452,12 +2459,16 @@
                     : block.layout === 'image-spelling-grid'
                       ? renderImageSpellingGrid(block, id)
                       : `<div class="exercise-items">${items.map((item, itemIndex) => renderExerciseItem(item, id, itemIndex, block.inlineNumberedItems === true)).join('')}</div>`;
+      const originalInstruction = safeText(block.instructions).trim();
+      const titleWithoutExerciseLetter = safeText(block.title).replace(/^\s*[a-z][.)]?\s+/i, '').trim();
+      const repeatInstruction = originalInstruction && (originalInstruction === safeText(block.title).trim() || originalInstruction === titleWithoutExerciseLetter);
+      const instructionMarkup = originalInstruction && !repeatInstruction ? `<p class="muted exercise-instructions">${escapeHtml(originalInstruction)}</p>` : '';
       const hasStickyImage = block.stickyImage === true && imageEntries.length === 1;
       const exerciseBody = hasStickyImage
         ? `<div class="exercise-sticky-layout"><div class="exercise-sticky-media">${image}</div><div class="exercise-sticky-content">${intro}${exerciseContent}</div></div>`
         : `${image}${intro}${exerciseContent}`;
       return `<article class="card lesson-block exercise-card${(block.layout === 'dialogue' || block.layout === 'dialogue-groups') ? ' dialogue-card' : ''}${hasStickyImage ? ' has-sticky-image' : ''}" data-task="${escapeHtml(id)}" data-type="exercise">
-        <div class="exercise-heading">${Object.prototype.hasOwnProperty.call(block, 'eyebrow') ? (safeText(block.eyebrow) ? `<span class="eyebrow">${escapeHtml(safeText(block.eyebrow))}</span>` : '') : '<span class="eyebrow">Exercise</span>'}<h3>${title}</h3>${block.instructions ? `<p class="muted exercise-instructions">${escapeHtml(block.instructions)}</p>` : ''}${player}${wordBank}${wordBanks}</div>
+        <div class="exercise-heading">${Object.prototype.hasOwnProperty.call(block, 'eyebrow') ? (safeText(block.eyebrow) ? `<span class="eyebrow">${escapeHtml(safeText(block.eyebrow))}</span>` : '') : '<span class="eyebrow">Exercise</span>'}<h3>${title}</h3>${instructionMarkup}${player}${wordBank}${wordBanks}</div>
         ${exerciseBody}
       </article>`;
     }
@@ -2709,7 +2720,14 @@
         if (input) input.checked = true;
       } else if (inputType === 'select') {
         const select = itemNode.querySelector('select');
-        if (select) select.value = safeText(value);
+        if (select) {
+          const savedText = safeText(value);
+          if ([...select.options].some(option => option.value === savedText)) select.value = savedText;
+          else if (Array.isArray(item.options)) {
+            const choice = item.options.findIndex(option => normalizeAnswer(option) === normalizeAnswer(savedText));
+            if (choice >= 0) select.value = String(choice);
+          }
+        }
       } else if (inputType === 'gaps') {
         const values = Array.isArray(value) ? value : [];
         itemNode.querySelectorAll('[data-gap-index]').forEach((input, gapIndex) => { input.value = safeText(values[gapIndex]); });
