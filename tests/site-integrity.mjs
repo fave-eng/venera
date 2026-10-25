@@ -21,7 +21,7 @@ assert.equal(load('data/grammar-data.js').GRAMMAR_DATA.length, 2)
 const folders = ['data/lessons', 'images', 'audio', 'scripts', 'templates', '.github/workflows', 'supabase/functions/notify-venera-telegram']
 for (const folder of folders) assert(fs.statSync(path.join(root, folder)).isDirectory(), `Missing directory: ${folder}`)
 const lessonFiles = fs.readdirSync(path.join(root, 'data/lessons')).filter(s => /^lesson-\d+\.json$/.test(s))
-assert.deepEqual(lessonFiles, ['lesson-1.json', 'lesson-2.json'], 'Expected Homework 1 and 2')
+assert.deepEqual(lessonFiles, ['lesson-1.json', 'lesson-2.json', 'lesson-3.json'], 'Expected Homework 1–3')
 const pages = ['index.html', 'homework.html', 'lesson.html', 'grammar.html', 'grammar-topic.html', 'vocabulary-hub.html', 'vocabulary.html', 'diagnostics.html','telegram-report-test.html']
 for (const page of pages) {
   const html = read(page)
@@ -86,3 +86,36 @@ const grammar2=load('data/grammar-data.js').GRAMMAR_DATA.find(t=>t.id===lesson2.
 assert(grammar2 && grammar2.exercises.length===4 && grammar2.exercises.every(e=>e.items.length===4))
 assert(app.includes('renderDialogueGroups'), 'Grouped workbook dialogues missing')
 console.log(`PASS HW2: 7 exercises, ${lesson2.totalPoints} scored items, 5 dialogues and Grammar 4 x 4`)
+
+// Homework 3 is a revision of unused exercises from Units 1A and 1B.
+const lesson3 = JSON.parse(read('data/lessons/lesson-3.json'))
+const exercises3 = lesson3.blocks.filter(block => block.type === 'exercise')
+assert.equal(lesson3.id, 'lesson-3')
+assert.equal(exercises3.length, 7, 'HW3 needs exactly seven unused workbook exercises')
+assert.deepEqual(exercises3.map(block => block.id), [
+  'revision-1a-food-categories', 'revision-1b-food-definitions', 'revision-1d-food-adjectives',
+  'revision-1e-phrasal-verbs', 'revision-1g-listening-vocabulary', 'revision-2a-vowel-chart', 'revision-1c-crossword'
+])
+const usedOriginal = new Set([...blocks, ...blocks2].map(x => x.id))
+for (const block of exercises3) assert(!usedOriginal.has(block.id), `HW3 overlaps previous exercise ${block.id}`)
+assert.deepEqual(exercises3.flatMap(block => (block.items || []).filter(item => !item.example && item.scored !== false)).length +
+  exercises3.flatMap(block => (block.entries || []).filter(e => !e.example)).length +
+  exercises3.flatMap(block => (block.layout === 'ed-pronunciation' ? (block.columns || []).flatMap(c => c.answers || []) : [])).length, lesson3.totalPoints)
+assert.equal(lesson3.totalPoints, 50)
+assert.equal(lesson3.notification.enabled, false, 'No automatic notification')
+assert.equal(exercises3[6].layout, 'crossword-grid')
+const entries3 = exercises3[6].entries
+assert.equal(entries3.length, 10)
+assert.equal(entries3.filter(x => x.example).length, 1)
+const crosswordCells = new Map()
+for (const entry of entries3) {
+  for (let i = 0; i < entry.answer.length; i++) {
+    const key = [entry.row + (entry.direction === 'down' ? i : 0), entry.col + (entry.direction === 'across' ? i : 0)].join(':')
+    const letter = entry.answer[i].toLowerCase()
+    assert(!crosswordCells.has(key) || crosswordCells.get(key) === letter, `Inconsistent crossword overlap: ${key}`)
+    crosswordCells.set(key, letter)
+  }
+}
+for (const block of exercises3) for (const item of block.items) if (item.input === 'gaps') assert.equal(item.segments.length, item.answers.length + 1)
+assert(!exercises3.some(b => b.audio), 'HW3 has no fake MP3 link')
+console.log(`PASS HW3: seven original unused exercises, ${lesson3.totalPoints} scored items, 9 playable crossword words, no audio files required`)
